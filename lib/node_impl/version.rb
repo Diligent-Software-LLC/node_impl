@@ -1,6 +1,11 @@
-# Copyright (C) 2020 Diligent Software LLC. All rights reserved. Released under
-# the MIT License.
+# Copyright (C) 2020 Diligent Software LLC. All rights reserved. Released 
+# under the MIT License.
 
-module NodeImpl
+require 'node_int'
+
+# Node.
+# @abstract
+# A doubly-linked Node implementation.
+class Node < NodeInt
   VERSION = ::VERSION
 end

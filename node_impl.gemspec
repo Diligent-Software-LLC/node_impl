@@ -9,11 +9,12 @@ Gem::Specification.new do |spec|
   spec.summary               = %q{A doubly-linked Node implementation
 component.}
   spec.description           = %q{A doubly-linked Node implementation
-component. Implements the Node interface: https://github.com/Diligent-Software-LLC/node_int.
-Donations support continuous improvement. Make a donation at the project's
+component. Implements the Node interface:
+https://github.com/Diligent-Software-LLC/node_int. Donations support
+continuous improvement. Make a donation at the project's
 collective page: https://opencollective.com/node. Greatly appreciated.}
-  spec.homepage              = "https://docs.diligentsoftware
-.org/node/implementation"
+  spec.homepage              = "https://docs.diligentsoftware.org/node/" +
+      "implementation"
   spec.license               = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.5")
 
@@ -22,7 +23,7 @@ collective page: https://opencollective.com/node. Greatly appreciated.}
   spec.metadata['source_code_uri'] =
       "https://github.com/Diligent-Software-LLC/node_impl"
   spec.metadata['changelog_uri']   = "https://www.docs.diligentsoftware.org/" +
-      "node/implementation#changelog"
+      "node/implementation"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
