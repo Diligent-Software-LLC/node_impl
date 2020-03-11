@@ -21,6 +21,7 @@ class NodeImplTest < Minitest::Test
     @plain_instance = Node.new()
     @string_initd   = Node.new(nil, string, nil)
     @back_set_node  = Node.new(@string_initd, nil, nil)
+    @front_set_node = Node.new(nil, nil, @string_initd)
 
   end
 
@@ -59,7 +60,15 @@ class NodeImplTest < Minitest::Test
   # The default instance is not the same as its copy.
   def test_default_case_eq()
     copy = @plain_instance.copy_constructor()
-    refute_same(@plain_instance, copy)
+    refute_operator(@plain_instance, '===', copy)
+  end
+
+  # test_default_case_eq1().
+  # @abstract
+  # A reference is the same as itself.
+  def test_default_case_eq1()
+    other = @plain_instance
+    assert_operator(other, '===', @plain_instance)
   end
 
   # test_default_inspect().
@@ -134,15 +143,26 @@ class NodeImplTest < Minitest::Test
     assert_same(pre_instance, pre_instance)
   end
 
-  # test_b_or_f_sub().
+  # test_b_sub().
   # @abstract
-  # Substituting a back or front initialized node copies the Node.
-  def test_b_or_f_sub()
+  # Substituting a back initialized node copies the Node.
+  def test_b_sub()
     pre_instance     = @plain_instance
     back_initialized = Node.new(@string_initd, 'test', nil)
     @plain_instance.substitute(back_initialized)
     assert_same(pre_instance, @plain_instance)
     assert_equal(back_initialized.back(), @plain_instance.back())
+  end
+
+  # test_f_sub().
+  # @abstract
+  # Substituting a front initialized node copies the Node.
+  def test_f_sub()
+    pre_instance      = @plain_instance
+    front_initialized = Node.new(nil, 'test', @string_initd)
+    @plain_instance.substitute(front_initialized)
+    assert_same(pre_instance, @plain_instance)
+    assert_equal(front_initialized.back(), @plain_instance.back())
   end
 
   # teardown().

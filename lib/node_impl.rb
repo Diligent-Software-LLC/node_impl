@@ -58,14 +58,7 @@ class Node < NodeInt
   # The date object's copy. Self's data and the returned copy refer separate
   # objects.
   def data()
-
-    if (@data.respond_to?('clone'))
-      copy = @data.clone()
-    else
-      return @data
-    end
-    return copy
-
+    return @data.clone()
   end
 
   # back().
@@ -94,7 +87,7 @@ class Node < NodeInt
     if (@front.nil?())
       return @front
     else
-      return @back.copy_constructor()
+      return @front.copy_constructor()
     end
 
   end
