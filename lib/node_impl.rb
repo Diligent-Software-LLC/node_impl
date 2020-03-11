@@ -8,7 +8,9 @@ require_relative 'node_helper.rb'
 # @abstract
 # A doubly-linked Node implementation.
 class Node < NodeInt
+
   include NodeHelper
+
   # initialize(back = nil, data = nil, front = nil).
   # @abstract
   # The constructor. The default object's attributes are all nil.
