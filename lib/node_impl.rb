@@ -1,12 +1,14 @@
-# Copyright (C) 2020 Diligent Software LLC. All rights reserved. Released 
+# Copyright (C) 2020 Diligent Software LLC. All rights reserved. Released
 # under the MIT License.
+
 require "node_impl/version"
+require_relative 'node_helper.rb'
 
 # Node.
 # @abstract
 # A doubly-linked Node implementation.
 class Node < NodeInt
-
+  include NodeHelper
   # initialize(back = nil, data = nil, front = nil).
   # @abstract
   # The constructor. The default object's attributes are all nil.
@@ -137,19 +139,9 @@ class Node < NodeInt
   def inspect()
 
     node_structure = STRUCTURE.dup()
-    if (back().nil?())
-      back_s = back().inspect()
-    else
-      back_s = back().to_s()
-    end
-    node_structure[:back] = back_s
+    node_structure[:back]  = string_rep(back())
     node_structure[:data] = @data.inspect()
-    if (front().nil?())
-      front_s = front().inspect()
-    else
-      front_s = front().to_s()
-    end
-    node_structure[:front] = front_s
+    node_structure[:front] = string_rep(front())
     return "#{to_s()}: #{node_structure.to_s()}"
 
   end
