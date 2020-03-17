@@ -2,10 +2,11 @@
 # under the MIT License.
 
 require 'node_int'
+require_relative 'node_helper'
 
 # Node.
 # @abstract
 # A doubly-linked Node implementation.
 class Node < NodeInt
-  VERSION = ::VERSION
+  VERSION = '0.1.1'.freeze()
 end

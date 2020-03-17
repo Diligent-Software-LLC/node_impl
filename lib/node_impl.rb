@@ -1,8 +1,7 @@
 # Copyright (C) 2020 Diligent Software LLC. All rights reserved. Released
 # under the MIT License.
 
-require "node_impl/version"
-require_relative 'node_helper.rb'
+require_relative "node_impl/version"
 
 # Node.
 # @abstract

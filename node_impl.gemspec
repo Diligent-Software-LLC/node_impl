@@ -1,9 +1,9 @@
-VERSION = '0.1.0'
+require_relative 'lib/node_impl/version'
 
 Gem::Specification.new do |spec|
 
   spec.name                  = "node_impl"
-  spec.version               = VERSION
+  spec.version = Node::VERSION
   spec.authors               = ["Bradley J. Tannor", "Diligent Software LLC"]
   spec.email                 = ["bradleytannor@gmail.com"]
   spec.summary               = %q{A doubly-linked Node implementation
