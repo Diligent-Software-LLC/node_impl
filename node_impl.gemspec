@@ -2,17 +2,19 @@ require_relative 'lib/node_impl/version'
 
 Gem::Specification.new do |spec|
 
+  # Attributes
   spec.name                  = "node_impl"
-  spec.version = Node::VERSION
+  spec.version     = Node::VERSION
   spec.authors               = ["Bradley J. Tannor", "Diligent Software LLC"]
   spec.email                 = ["bradleytannor@gmail.com"]
   spec.summary               = %q{A doubly-linked Node implementation
 component.}
-  spec.description           = %q{A doubly-linked Node implementation
-component. Implements the Node interface:
-https://github.com/Diligent-Software-LLC/node_int. Donations support
-continuous improvement. Make a donation at the project's
-collective page: https://opencollective.com/node. Greatly appreciated.}
+  spec.description = %q{A doubly-linked Node implementation
+component. Donations support continuous improvement and maintenance. The aim is
+a reliable, integrable, and endurable Node library. Make a donation at the
+project's collective page: https://opencollective.com/node. One-time and
+recurring donations are available at $1, $2, $4, $8, and $16. Greatly
+appreciated.}
   spec.homepage              = "https://docs.diligentsoftware.org/node/" +
       "implementation"
   spec.license               = "MIT"
@@ -37,6 +39,7 @@ collective page: https://opencollective.com/node. Greatly appreciated.}
   # Development and testing dependencies
   spec.add_development_dependency "bundler", "~> 2.1.2"
   spec.add_development_dependency "simplecov", "~> 0.17.1"
+  spec.add_development_dependency 'node_int', '~> 0.1.0'
 
   # Gem specific runtime dependencies
   spec.add_runtime_dependency 'node_int', '~> 0.1.0'

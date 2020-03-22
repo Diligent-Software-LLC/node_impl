@@ -1,27 +1,27 @@
 # node_impl ![Gem](https://img.shields.io/gem/v/node_impl) ![Gem](https://img.shields.io/gem/dt/node_impl) [![Build Status](https://travis-ci.com/Diligent-Software-LLC/node_impl.svg?branch=master)](https://travis-ci.com/Diligent-Software-LLC/node_impl)
 
-A doubly-linked Node implementation. Implements the 
-[node_int](https://github.com/Diligent-Software-LLC/node_int) interface.
+A doubly-linked Node implementation. Implements the node_int interface.
 
 ## Installation
 
-Refer the package's [installation](https://docs.diligentsoftware.org/node/packages) page.
+- Refer the [packages page](https://docs.diligentsoftware.org/node/packages).
 
 ## Documentation
 
-Refer the package's 
-[documentation](https://docs.diligentsoftware.org/node/implementation) page.
+- Refer the [implementation's homepage](https://docs.diligentsoftware.org/node/implementation).
 
 ## Contributing
 
 ### Donate
 
-Donations support continuous improvement. Make a donation at the project's 
-[collective page](https://opencollective.com/node). Greatly appreciated.
+Donations support continuous improvement and maintenance. The aim is a reliable,
+integrable, and endurable Node library. Make a donation at the project's 
+collective page: https://opencollective.com/node. One-time and recurring 
+donations are available at $1, $2, $4, $8, and $16. Greatly appreciated.
 
 ### Report Bugs
 
-Refer the [Bug Reporting Procedure](https://github.com/Diligent-Software-LLC/node_impl/issues/1).
+- Refer the [Bug Reporting Procedure](https://github.com/Diligent-Software-LLC/node_impl/issues/1).
 
 ### Fix Bugs
 

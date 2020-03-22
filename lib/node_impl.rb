@@ -2,6 +2,7 @@
 # under the MIT License.
 
 require_relative "node_impl/version"
+require_relative 'node_impl/inspect_helper'
 
 # Node.
 # @abstract
@@ -9,6 +10,7 @@ require_relative "node_impl/version"
 class Node < NodeInt
 
   include NodeHelper
+  include InspectHelper
 
   # initialize(back = nil, data = nil, front = nil).
   # @abstract
@@ -29,14 +31,23 @@ class Node < NodeInt
 
   end
 
-  # copy_constructor().
+  # clone().
   # @abstract
-  # Copies the left-hand side Node.
-  # @return [Node] copy
-  # A Node containing the same attribute values, and different object
-  # references.
-  def copy_constructor()
-    return initialize_copy()
+  # Copies self. Clones back, data, and front. Builds a new node, arguing the
+  # corresponding clones.
+  # @return [Node] clone
+  # self's clone.
+  def clone()
+
+    clone       = Node.new()
+    b           = back().clone()
+    d           = data().clone()
+    f           = front().clone()
+    clone.back  = b
+    clone.data  = d
+    clone.front = f
+    return clone
+
   end
 
   # substitute(rhs).
@@ -58,41 +69,28 @@ class Node < NodeInt
   # @abstract
   # Getter. Gets the data attribute reference.
   # @return [Object]
-  # The date object's copy. Self's data and the returned copy refer separate
-  # objects.
+  # Either a Numeric, FalseClass, Symbol, TrueClass, String, Time, or
+  # NilClass object.
   def data()
-    return @data.clone()
+    return @data
   end
 
   # back().
   # @abstract
   # Getter. Gets the back Node reference.
-  # @return [Node] copy
-  # The preceding Node's copy. The attribute values are the same and the
-  # object references differ.
+  # @return [Node] @back
+  # The back Node reference.
   def back()
-
-    if (@back.nil?())
-      return @back
-    else
-      return @back.copy_constructor()
-    end
-
+    return @back
   end
 
   # front().
   # @abstract
   # Getter. Gets the proceeding Node's reference.
-  # @return [Node] copy
-  # A Node copy. The copy's references differ and the values are the same.
+  # @return [Node] @front
+  # The front Node reference.
   def front()
-
-    if (@front.nil?())
-      return @front
-    else
-      return @front.copy_constructor()
-    end
-
+    return @front
   end
 
   # type().
@@ -104,21 +102,74 @@ class Node < NodeInt
     return @data.class()
   end
 
-  # ==(rhs).
+  # back=(node = nil).
   # @abstract
-  # Attribute equality operator.
-  # @param [Node] rhs
-  # A Node object.
-  # @return [TrueClass, FalseClass]
-  # True in the case the front and back attributes are the same type, and
-  # the data attributes are the same type and value.
-  def ==(rhs)
-    attribute_predicate =
-        ((back().class().equal?(rhs.back().class())) &&
-            (front().class().equal?(rhs.front().class())) &&
-            (type().equal?(rhs.type())) &&
-            (data() == rhs.data()))
-    return attribute_predicate
+  # Setter. Assigns back the node.
+  # @param [Node, NilClass] back
+  # A Node or NilClass object becoming the back Node reference.
+  def back=(node = nil)
+
+    if (!(node.instance_of?(Node) || node.nil?()))
+      raise(ArgumentError, "#{node} is not a Node instance.")
+    end
+    @back = node
+
+  end
+
+  # data=(data = nil).
+  # @abstract
+  # Assigns data the data object. In the case the data object is invalid,
+  # raises an ArgumentError.
+  # @param [Object] data
+  # A data object.
+  def data=(data = nil)
+
+    if (!(data.kind_of?(Numeric) || data.instance_of?(FalseClass) ||
+        data.instance_of?(Symbol) || data.instance_of?(TrueClass) ||
+        data.instance_of?(String) || data.instance_of?(Time) ||
+        data.instance_of?(NilClass)))
+      raise(ArgumentError, "#{data} is not an instance of Numeric,
+FalseClass, Symbol, TrueClass, String, Time, or NilClass.")
+    end
+    @data = data
+
+  end
+
+  # front=(node = nil).
+  # @abstract
+  # Setter. Assigns front the node.
+  # @param [Node, NilClass] node
+  # A Node or NilClass object becoming the front Node reference.
+  def front=(node = nil)
+
+    if (!(node.instance_of?(Node) || node.nil?()))
+      raise(ArgumentError, "#{node} is not a Node instance.")
+    end
+    @front = node
+
+  end
+
+  # ==(node = nil).
+  # @abstract
+  # Attribute equality operator. Compares the lhs and rhs's attributes.
+  # @param [Object] node
+  # Any object.
+  # @return [TrueClass, FalseClass] eq
+  # True in the case the back nodes are attributively equal, the data objects
+  # are attributively equal, and the front nodes are attributively equal.
+  # False otherwise.
+  def ==(node = nil)
+
+    if (!node.instance_of?(Node))
+      return false
+    else
+
+      eq = ((back() == node.back()) && data() == node.data() &&
+          front() == node.front())
+      return eq
+
+    end
+
   end
 
   # ===(rhs).
@@ -134,60 +185,51 @@ class Node < NodeInt
 
   # inspect().
   # @abstract
-  # Represents the Node structure.
-  # @return [String]
-  # The representation.
+  # Represents the Node structure diagrammatically. The diagram represents the
+  # Node in two rows. An upper row and a lower row. The upper row is a String
+  # printing the Node's string representation between pipes. In the case the
+  # Node's front attribute refers a Node, the upper row also includes a forward
+  # arrow. The lower row is a String printing the data between pipes. In the
+  # case the Node's back attribute refers a Node, the lower row includes a
+  # backwards arrow. In the case the Node refers a back Node and a front Node,
+  # the diagram prints a forward and backward arrow. The :upper and :lower
+  # hashes store the rows, and the diagram_h variable stores the :upper and
+  # :lower hashes. Each node inspect has a corresponding inspect helper.
+  # @return [String] diagram
+  # The representation diagram.
   def inspect()
 
-    node_structure = STRUCTURE.dup()
-    node_structure[:back]  = string_rep(back())
-    node_structure[:data] = @data.inspect()
-    node_structure[:front] = string_rep(front())
-    return "#{to_s()}: #{node_structure.to_s()}"
+    case
+    when back().nil?() && front().nil?()
 
-  end
+      lines   = only_data_insp()
+      upper   = lines[:upper]
+      lower   = lines[:lower]
+      diagram = upper + "\n" + lower
 
-  private
+    when !back().nil?() && front().nil?()
 
-  # back=(back).
-  # @abstract
-  # Setter. Assigns the back node.
-  # @param [Node, NilClass] back
-  # A Node or NilClass object becoming the back Node reference.
-  def back=(back)
-    @back = back
-  end
+      lines   = nil_front_insp()
+      upper   = lines[:upper]
+      lower   = lines[:lower]
+      diagram = upper + "\n" + lower
 
-  # data=(data).
-  # @abstract
-  # Assigns the data reference.
-  # @param [Object] data
-  # A data object.
-  def data=(data)
-    @data = data
-  end
+    when back().nil?() && !front().nil?()
 
-  # front=(front).
-  # @abstract
-  # Assigns the front reference.
-  # @param [Node, NilClass] front
-  # A Node or NilClass object.
-  def front=(front)
-    @front = front
-  end
+      lines   = nil_back_insp()
+      upper   = lines[:upper]
+      lower   = lines[:lower]
+      diagram = upper + "\n" + lower
 
-  # initialize_copy()
-  # @abstract
-  # Initializes a self copy.
-  # @return [Node] copy
-  # The object and attribute object references differ.
-  def initialize_copy()
+    else
 
-    back_copy  = (Node.new(back(), data(), front())) unless @back.nil?()
-    data_copy  = data()
-    front_copy = (Node.new(back(), data(), front())) unless @front.nil?()
-    copy       = Node.new(back_copy, data_copy, front_copy)
-    return copy
+      lines   = doubly_linked_insp()
+      upper   = lines[:upper]
+      lower   = lines[:lower]
+      diagram = upper + "\n" + lower
+
+    end
+    return diagram
 
   end
 

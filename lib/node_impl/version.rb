@@ -8,5 +8,5 @@ require_relative 'node_helper'
 # @abstract
 # A doubly-linked Node implementation.
 class Node < NodeInt
-  VERSION = '0.1.1'.freeze()
+  VERSION = '1.0.0'.freeze()
 end
