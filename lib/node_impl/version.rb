@@ -5,8 +5,15 @@ require 'node_int'
 require_relative 'node_helper'
 
 # Node.
-# @abstract
-# A doubly-linked Node implementation.
+# @class_description
+#   A doubly-linked Node data structure implementation.
+# @attr back [Node]
+#   A back node.
+# @attr data [DataType]
+#   Any DataType instance. Refer the Data Library Homepage's
+#   {https://docs.diligentsoftware.org/data#data-types Data Types} section.
+# @attr front [Node]
+#   A front node.
 class Node < NodeInt
-  VERSION = '1.0.0'.freeze()
+  VERSION = '2.0.0'.freeze()
 end

@@ -33,16 +33,12 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Fixed Load Bug&#10;&#10;Version was defined in the gemspec. The gemspec is unavailable outside development.">
+    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Added, Edited, Fixed&#10;&#10;Commit is backwardly incompatible. Numerous additions, changes, and editions.">
       <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/node_impl.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/node_impl/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl/version.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_impl.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_impl.gemspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/node_impl_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/node_impl_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_helper.rb" afterDir="false" />
     </list>
     <list id="f85580a0-d3e2-4954-91e1-b0bb3e69790a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -140,6 +136,7 @@
       <command value="mkdir artifacts" />
       <command value="mv node_impl_0.1.0.gem artifacts" />
       <command value="mv node_impl-0.1.0.gem artifacts/node_impl-0.1.0.gem" />
+      <command value="mv node_impl-1.0.0.gem artifacts" />
     </option>
   </component>
   <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.NodeImplTest">
@@ -336,7 +333,8 @@
       <workItem from="1584299660023" duration="389000" />
       <workItem from="1584485916367" duration="1372000" />
       <workItem from="1584487331101" duration="71000" />
-      <workItem from="1584740252043" duration="34243000" />
+      <workItem from="1584740252043" duration="34994000" />
+      <workItem from="1586536674460" duration="1105000" />
     </task>
     <task id="LOCAL-00002" summary="NImp-1 Configure Gem Specification (project_name.gemspec)&#10;&#10;Specified the gem. Attributes, metadata, and dependencies written. Updated version syntax in version.rb.">
       <created>1583877906521</created>
@@ -408,12 +406,19 @@
       <option name="project" value="LOCAL" />
       <updated>1584486763804</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added, Edited, Fixed&#10;&#10;Commit is backwardly incompatible. Numerous additions, changes, and editions.">
+      <created>1584919287451</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1584919287452</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <option name="createBranch" value="false" />
     <option name="useBranch" value="true" />
     <servers>
       <YouTrack url="https://macbook-pro.local:8443">
-        <option name="defaultSearch" value="project: Node Board Implementation: 2 #{ Deploy Preparation} " />
+        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation #Setup Sprints: 3" />
         <option name="preferredOpenTaskState">
           <CustomTaskState id="Done" name="Done" />
         </option>
@@ -448,7 +453,8 @@
     <MESSAGE value="NImp-17 Code&#10;&#10;Refactored code." />
     <MESSAGE value="NImp-18 Code&#10;&#10;Refactored code." />
     <MESSAGE value="Fixed Load Bug&#10;&#10;Version was defined in the gemspec. The gemspec is unavailable outside development." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Load Bug&#10;&#10;Version was defined in the gemspec. The gemspec is unavailable outside development." />
+    <MESSAGE value="Added, Edited, Fixed&#10;&#10;Commit is backwardly incompatible. Numerous additions, changes, and editions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added, Edited, Fixed&#10;&#10;Commit is backwardly incompatible. Numerous additions, changes, and editions." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -472,26 +478,26 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.975@0.23.1680.975" timestamp="1583956104509" />
-    <state x="551" y="86" key="CommitChangelistDialog2" timestamp="1584486763454">
+    <state x="197" y="23" width="1343" height="974" key="CommitChangelistDialog2" timestamp="1584919286950">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="551" y="86" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1584486763454" />
-    <state width="1541" height="271" key="GridCell.Tab.0.bottom" timestamp="1584901440721">
+    <state x="197" y="23" width="1343" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1584919286950" />
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom" timestamp="1586543904885">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1541" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1584901440721" />
-    <state width="1541" height="271" key="GridCell.Tab.0.center" timestamp="1584901440720">
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1586543904885" />
+    <state width="1549" height="271" key="GridCell.Tab.0.center" timestamp="1586543904884">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1541" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1584901440720" />
-    <state width="1541" height="271" key="GridCell.Tab.0.left" timestamp="1584901440719">
+    <state width="1549" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1586543904884" />
+    <state width="1549" height="271" key="GridCell.Tab.0.left" timestamp="1586543904884">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1541" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1584901440719" />
-    <state width="1541" height="271" key="GridCell.Tab.0.right" timestamp="1584901440721">
+    <state width="1549" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1586543904884" />
+    <state width="1549" height="271" key="GridCell.Tab.0.right" timestamp="1586543904885">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1541" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1584901440721" />
+    <state width="1549" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1586543904885" />
     <state x="333" y="149" key="SettingsEditor" timestamp="1583964291185">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -500,10 +506,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="332" key="SimpleOpenTaskDialog/0.23.1680.975@0.23.1680.975" timestamp="1583878111638" />
-    <state x="424" y="250" key="Vcs.Push.Dialog.v2" timestamp="1584487391464">
+    <state x="424" y="250" key="Vcs.Push.Dialog.v2" timestamp="1584919742105">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="424" y="250" key="Vcs.Push.Dialog.v2/0.23.1680.975@0.23.1680.975" timestamp="1584487391464" />
+    <state x="424" y="250" key="Vcs.Push.Dialog.v2/0.23.1680.975@0.23.1680.975" timestamp="1584919742105" />
     <state x="636" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584808690434">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -516,10 +522,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.23.1680.975@0.23.1680.975" timestamp="1584895668948" />
-    <state x="489" y="235" width="670" height="675" key="run.anything.popup" timestamp="1583968334918">
+    <state x="489" y="235" width="670" height="675" key="run.anything.popup" timestamp="1584919958442">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1583968334918" />
+    <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1584919958442" />
     <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1584901870704">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
