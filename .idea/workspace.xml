@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BuildServerSettings">
-    <option name="LOGIN" value="" />
-    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="LOGIN" value="admin" />
+    <option name="SERVER_URL" value="http://localhost:8111" />
     <option name="REMEMBER_ME" value="true" />
     <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
     <option name="INSPECTIONS_BUILD_TYPE_IDS" />
@@ -33,12 +33,18 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Added, Edited, Fixed&#10;&#10;Commit is backwardly incompatible. Numerous additions, changes, and editions.">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Development Complete&#10;&#10;Edited copyright statements. Rewrote InspectHelper. Removed node_helper.rb and its references. Added 'require' statements. Added YARDocumentation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/node_impl.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/node_impl/inspect_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl/inspect_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/node_impl/node_helper.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/node_impl/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl/version.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_impl.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_impl.gemspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/node_impl_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/node_impl_test.rb" afterDir="false" />
     </list>
     <list id="f85580a0-d3e2-4954-91e1-b0bb3e69790a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -51,7 +57,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="369" />
+    <option name="myElementSize" value="400" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -137,6 +143,7 @@
       <command value="mv node_impl_0.1.0.gem artifacts" />
       <command value="mv node_impl-0.1.0.gem artifacts/node_impl-0.1.0.gem" />
       <command value="mv node_impl-1.0.0.gem artifacts" />
+      <command value="cp ../&quot;Template Files&quot;/.yardopts .yardopts" />
     </option>
   </component>
   <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.NodeImplTest">
@@ -163,35 +170,6 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_default_case_eq" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
-      <module name="node_impl" />
-      <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Ilib:test" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/test/node_impl_test.rb" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_default_case_eq" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
@@ -227,7 +205,7 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_f_sub" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
+    <configuration name="test_insp_x2_y2" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
       <module name="node_impl" />
       <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Ilib:test" />
@@ -248,7 +226,7 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/test/node_impl_test.rb" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_f_sub" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_insp_x2_y2" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
@@ -256,7 +234,7 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_ic_x1_y1" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
+    <configuration name="test_insp_x3_y3" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
       <module name="node_impl" />
       <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Ilib:test" />
@@ -277,7 +255,36 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/test/node_impl_test.rb" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_ic_x1_y1" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_insp_x3_y3" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_insp_x4_y4" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
+      <module name="node_impl" />
+      <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Ilib:test" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/test/node_impl_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_insp_x4_y4" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
@@ -288,10 +295,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Test::Unit/Shoulda/Minitest.NodeImplTest" />
-        <item itemvalue="Test::Unit/Shoulda/Minitest.test_ic_x1_y1" />
+        <item itemvalue="Test::Unit/Shoulda/Minitest.test_insp_x4_y4" />
+        <item itemvalue="Test::Unit/Shoulda/Minitest.test_insp_x3_y3" />
+        <item itemvalue="Test::Unit/Shoulda/Minitest.test_insp_x2_y2" />
         <item itemvalue="Test::Unit/Shoulda/Minitest.test_default_copy" />
-        <item itemvalue="Test::Unit/Shoulda/Minitest.test_f_sub" />
-        <item itemvalue="Test::Unit/Shoulda/Minitest.test_default_case_eq" />
       </list>
     </recent_temporary>
   </component>
@@ -334,7 +341,7 @@
       <workItem from="1584485916367" duration="1372000" />
       <workItem from="1584487331101" duration="71000" />
       <workItem from="1584740252043" duration="34994000" />
-      <workItem from="1586536674460" duration="1105000" />
+      <workItem from="1586536674460" duration="16572000" />
     </task>
     <task id="LOCAL-00002" summary="NImp-1 Configure Gem Specification (project_name.gemspec)&#10;&#10;Specified the gem. Attributes, metadata, and dependencies written. Updated version syntax in version.rb.">
       <created>1583877906521</created>
@@ -413,12 +420,19 @@
       <option name="project" value="LOCAL" />
       <updated>1584919287452</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Setup Complete&#10;&#10;Added version.rb YARDocumentation.">
+      <created>1586543988465</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1586543988466</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <option name="createBranch" value="false" />
     <option name="useBranch" value="true" />
     <servers>
       <YouTrack url="https://macbook-pro.local:8443">
-        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation #Setup Sprints: 3" />
+        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation #{Prepare Deployment } Sprints: 3" />
         <option name="preferredOpenTaskState">
           <CustomTaskState id="Done" name="Done" />
         </option>
@@ -454,7 +468,8 @@
     <MESSAGE value="NImp-18 Code&#10;&#10;Refactored code." />
     <MESSAGE value="Fixed Load Bug&#10;&#10;Version was defined in the gemspec. The gemspec is unavailable outside development." />
     <MESSAGE value="Added, Edited, Fixed&#10;&#10;Commit is backwardly incompatible. Numerous additions, changes, and editions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added, Edited, Fixed&#10;&#10;Commit is backwardly incompatible. Numerous additions, changes, and editions." />
+    <MESSAGE value="Setup Complete&#10;&#10;Added version.rb YARDocumentation. Rewrote Gem Specification." />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup Complete&#10;&#10;Added version.rb YARDocumentation. Rewrote Gem Specification." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -478,26 +493,34 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.975@0.23.1680.975" timestamp="1583956104509" />
-    <state x="197" y="23" width="1343" height="974" key="CommitChangelistDialog2" timestamp="1584919286950">
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1586562054062">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="197" y="23" width="1343" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1584919286950" />
-    <state width="1549" height="271" key="GridCell.Tab.0.bottom" timestamp="1586543904885">
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1586562054062" />
+    <state x="653" y="434" key="GitRewordDialog" timestamp="1586544046895">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1586543904885" />
-    <state width="1549" height="271" key="GridCell.Tab.0.center" timestamp="1586543904884">
+    <state x="653" y="434" key="GitRewordDialog/0.23.1680.975@0.23.1680.975" timestamp="1586544046895" />
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom" timestamp="1586562202202">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1586543904884" />
-    <state width="1549" height="271" key="GridCell.Tab.0.left" timestamp="1586543904884">
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1586562202202" />
+    <state width="1549" height="271" key="GridCell.Tab.0.center" timestamp="1586562202202">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1586543904884" />
-    <state width="1549" height="271" key="GridCell.Tab.0.right" timestamp="1586543904885">
+    <state width="1549" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1586562202202" />
+    <state width="1549" height="271" key="GridCell.Tab.0.left" timestamp="1586562202201">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1586543904885" />
+    <state width="1549" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1586562202201" />
+    <state width="1549" height="271" key="GridCell.Tab.0.right" timestamp="1586562202202">
+      <screen x="0" y="23" width="1680" height="975" />
+    </state>
+    <state width="1549" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1586562202202" />
+    <state x="645" y="435" key="ReplaceDuplicatesPrompt" timestamp="1586547866324">
+      <screen x="0" y="23" width="1680" height="975" />
+    </state>
+    <state x="645" y="435" key="ReplaceDuplicatesPrompt/0.23.1680.975@0.23.1680.975" timestamp="1586547866324" />
     <state x="333" y="149" key="SettingsEditor" timestamp="1583964291185">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -514,39 +537,58 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="636" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.975@0.23.1680.975" timestamp="1584808690434" />
-    <state x="438" y="235" width="816" height="550" key="find.popup" timestamp="1584831376474">
+    <state x="438" y="235" width="816" height="550" key="find.popup" timestamp="1586544138870">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="438" y="235" width="816" height="550" key="find.popup/0.23.1680.975@0.23.1680.975" timestamp="1584831376474" />
-    <state width="600" height="424" key="javadoc.popup" timestamp="1584895668948">
+    <state x="438" y="235" width="816" height="550" key="find.popup/0.23.1680.975@0.23.1680.975" timestamp="1586544138870" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1586559104073">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="600" height="424" key="javadoc.popup/0.23.1680.975@0.23.1680.975" timestamp="1584895668948" />
-    <state x="489" y="235" width="670" height="675" key="run.anything.popup" timestamp="1584919958442">
+    <state width="600" height="424" key="javadoc.popup/0.23.1680.975@0.23.1680.975" timestamp="1586559104073" />
+    <state x="489" y="235" width="670" height="675" key="run.anything.popup" timestamp="1586544285034">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1584919958442" />
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1584901870704">
+    <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1586544285034" />
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1586546559050">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1584901870704" />
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1586546559050" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/node_impl@test_b_or_f_sub.rcov" NAME="test_b_or_f_sub Coverage Results" MODIFIED="1583948316546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_copy_data_obj.rcov" NAME="test_copy_data_obj Coverage Results" MODIFIED="1583946310086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_defaults_to_s.rcov" NAME="test_defaults_to_s Coverage Results" MODIFIED="1583947395414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_default_copy.rcov" NAME="test_default_copy Coverage Results" MODIFIED="1584901007348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_default_type.rcov" NAME="test_default_type Coverage Results" MODIFIED="1583947495573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_default_case_eq.rcov" NAME="test_default_case_eq Coverage Results" MODIFIED="1583954478275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_default_attr_eq.rcov" NAME="test_default_attr_eq Coverage Results" MODIFIED="1583947488193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_default_case_eq1.rcov" NAME="test_default_case_eq1 Coverage Results" MODIFIED="1583954442335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_copy_data_obj.rcov" NAME="test_copy_data_obj Coverage Results" MODIFIED="1586557955840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_default_copy.rcov" NAME="test_default_copy Coverage Results" MODIFIED="1586558002579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_default_case_eq.rcov" NAME="test_default_case_eq Coverage Results" MODIFIED="1586553750588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_version_declared.rcov" NAME="test_version_declared Coverage Results" MODIFIED="1586553140399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_default_case_eq1.rcov" NAME="test_default_case_eq1 Coverage Results" MODIFIED="1586553745799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_b_ass_x2a_y1.rcov" NAME="test_b_ass_x2a_y1 Coverage Results" MODIFIED="1586557413257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
     <SUITE FILE_PATH="coverage/node_impl@test_back_copy.rcov" NAME="test_back_copy Coverage Results" MODIFIED="1583952931274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_data_object_gets.rcov" NAME="test_data_object_gets Coverage Results" MODIFIED="1583947383731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_f_sub.rcov" NAME="test_f_sub Coverage Results" MODIFIED="1583954780301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_f_ass_x2b_y2.rcov" NAME="test_f_ass_x2b_y2 Coverage Results" MODIFIED="1586557689922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_insp_x2_y2.rcov" NAME="test_insp_x2_y2 Coverage Results" MODIFIED="1586558956747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_is_x2_y1.rcov" NAME="test_is_x2_y1 Coverage Results" MODIFIED="1586557939324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_conf_doc_f_ex.rcov" NAME="test_conf_doc_f_ex Coverage Results" MODIFIED="1586553123934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_clone_x4_y1.rcov" NAME="test_clone_x4_y1 Coverage Results" MODIFIED="1586557951783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_insp_x4_y4.rcov" NAME="test_insp_x4_y4 Coverage Results" MODIFIED="1586560320803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
     <SUITE FILE_PATH="coverage/node_impl@test_default_inspect.rcov" NAME="test_default_inspect Coverage Results" MODIFIED="1583953590453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_clone_x3_y1.rcov" NAME="test_clone_x3_y1 Coverage Results" MODIFIED="1586557947354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_f_ass_x2a_y1.rcov" NAME="test_f_ass_x2a_y1 Coverage Results" MODIFIED="1586557710011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
     <SUITE FILE_PATH="coverage/node_impl@test_ic_x1_y1.rcov" NAME="test_ic_x1_y1 Coverage Results" MODIFIED="1584901077682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@NodeImplTest.rcov" NAME="NodeImplTest Coverage Results" MODIFIED="1584901433647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_data_value_gets.rcov" NAME="test_data_value_gets Coverage Results" MODIFIED="1583947388767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
-    <SUITE FILE_PATH="coverage/node_impl@test_sub_default.rcov" NAME="test_sub_default Coverage Results" MODIFIED="1583947295336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_data_value_gets.rcov" NAME="test_data_value_gets Coverage Results" MODIFIED="1586553603497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_b_sub.rcov" NAME="test_b_sub Coverage Results" MODIFIED="1586553688367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_b_ass_x2b_y2.rcov" NAME="test_b_ass_x2b_y2 Coverage Results" MODIFIED="1586557420044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_defaults_to_s.rcov" NAME="test_defaults_to_s Coverage Results" MODIFIED="1586553313163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_default_type.rcov" NAME="test_default_type Coverage Results" MODIFIED="1586553182245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_default_attr_eq.rcov" NAME="test_default_attr_eq Coverage Results" MODIFIED="1586553250918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_insp_x1_y1.rcov" NAME="test_insp_x1_y1 Coverage Results" MODIFIED="1586554287377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_data_ass_x2b_y1.rcov" NAME="test_data_ass_x2b_y1 Coverage Results" MODIFIED="1586557641072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_attr_eq_x2b_y1.rcov" NAME="test_attr_eq_x2b_y1 Coverage Results" MODIFIED="1586553231719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_insp_x3_y3.rcov" NAME="test_insp_x3_y3 Coverage Results" MODIFIED="1586559697903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_clone_x1_y1.rcov" NAME="test_clone_x1_y1 Coverage Results" MODIFIED="1586557884600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_data_object_gets.rcov" NAME="test_data_object_gets Coverage Results" MODIFIED="1586553629733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_f_sub.rcov" NAME="test_f_sub Coverage Results" MODIFIED="1586553722970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_attr_eq_x2a_y2.rcov" NAME="test_attr_eq_x2a_y2 Coverage Results" MODIFIED="1586553197979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_data_ass_x2a_y2.rcov" NAME="test_data_ass_x2a_y2 Coverage Results" MODIFIED="1586557501826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@NodeImplTest.rcov" NAME="NodeImplTest Coverage Results" MODIFIED="1586562196889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
+    <SUITE FILE_PATH="coverage/node_impl@test_sub_default.rcov" NAME="test_sub_default Coverage Results" MODIFIED="1586553655913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
   </component>
 </project>

@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     node_impl (2.0.0)
-      data_error (~> 2.0.0)
+      data_library (~> 0.1.0)
       node_error (~> 3.0.0)
       node_int (~> 1.0.0)
 
@@ -14,6 +14,13 @@ GEM
     data_error_impl (2.0.1)
       data_error_int (~> 2.0.0)
     data_error_int (2.0.0)
+    data_impl (0.1.0)
+      data_int (~> 0.1.0)
+    data_int (0.1.0)
+    data_library (0.1.0)
+      data_error (~> 2.0.0)
+      data_impl (~> 0.1.0)
+      data_int (~> 0.1.0)
     data_structure_error (1.2.1)
     docile (1.3.2)
     json (2.3.0)
@@ -38,7 +45,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.1.0)
-  data_error (~> 2.0.0)
+  data_library (~> 0.1.0)
   minitest (~> 5.0)
   node_error (~> 3.0.0)
   node_impl!
