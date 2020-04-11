@@ -174,6 +174,17 @@ class NodeImplTest < Minitest::Test
 
   end
 
+  # test_sub_inv().
+  # @description
+  #   Substituting an invalid node.
+  def test_sub_inv()
+
+    assert_raises(NodeError) {
+      @inst_x6.substitute(@data_x6)
+    }
+
+  end
+
   # ===(n = ni)
 
   # test_default_case_eq().

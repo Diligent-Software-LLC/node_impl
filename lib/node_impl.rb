@@ -61,10 +61,17 @@ class Node < NodeInt
   #   In the case the argument is not a Node instance.
   def substitute(rhs = nil)
 
-    self.back  = rhs.back()
-    self.data  = rhs.data()
-    self.front = rhs.front()
-    return nil
+    error = NodeError.new()
+    if (!rhs.instance_of?(Node))
+      raise(error, error.message())
+    else
+
+      self.back  = rhs.back()
+      self.data  = rhs.data()
+      self.front = rhs.front()
+      return nil
+
+    end
 
   end
 
