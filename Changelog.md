@@ -1,5 +1,25 @@
 # Changelog
 
+## v3.0.0, 2020-04-15
+
+### Added
+
+- 'b()', 'd()', and 'f()' public methods.
+- 'back_ref()', 'data_ref()', and 'front_ref()' protected methods.
+- Tests covering additions and editions.
+
+### Edited
+
+- Interface dependency. 1.0.0 -> 2.0.0.
+- Moved 'data()', 'back()', and 'front()' methods.
+- Factored tests.
+- Factored test constants.
+- Formatted node_impl_test.rb.
+
+### Fixed
+
+- Inifinite loop bug in '==' method.
+
 ## v2.0.0, 2020-04-10
 
 ### Added

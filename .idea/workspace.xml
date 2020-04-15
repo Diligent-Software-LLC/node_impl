@@ -67,13 +67,8 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Setup Complete&#10;&#10;Added minitest-reporters dependency. Added interface v. 2.0.0.">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/node_impl.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/node_impl_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/node_impl_test.rb" afterDir="false" />
+    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Development Complete&#10;&#10;Added 'b()', 'd()', and 'f()' methods. Added 'back_ref()', 'data_ref()', and 'front_ref()' protected methods. Fixed infinite loop bug in '==' method. Moved 'data()', 'back()', and 'front()' methods. Factored tests. Formatted node_impl_test.rb. Added tests covering additions and editions. Removed minitest-reporters. minitest-reporters removed IDE functionality.">
+      <change beforePath="$PROJECT_DIR$/Changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.md" afterDir="false" />
     </list>
     <list id="f85580a0-d3e2-4954-91e1-b0bb3e69790a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -375,7 +370,7 @@
       <workItem from="1584487331101" duration="71000" />
       <workItem from="1584740252043" duration="34994000" />
       <workItem from="1586536674460" duration="19768000" />
-      <workItem from="1586977665406" duration="10295000" />
+      <workItem from="1586977665406" duration="10861000" />
     </task>
     <task id="LOCAL-00002" summary="NImp-1 Configure Gem Specification (project_name.gemspec)&#10;&#10;Specified the gem. Attributes, metadata, and dependencies written. Updated version syntax in version.rb.">
       <created>1583877906521</created>
@@ -517,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586988913543</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Development Complete&#10;&#10;Added 'b()', 'd()', and 'f()' methods. Added 'back_ref()', 'data_ref()', and 'front_ref()' protected methods. Fixed infinite loop bug in '==' method. Moved 'data()', 'back()', and 'front()' methods. Factored tests. Formatted node_impl_test.rb. Added tests covering additions and editions. Removed minitest-reporters. minitest-reporters removed IDE functionality.">
+      <created>1586990171789</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1586990171789</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <option name="createBranch" value="false" />
     <option name="useBranch" value="true" />
     <servers>
@@ -563,7 +565,8 @@
     <MESSAGE value="Prepare Deployment&#10;&#10;Fixed bug in substitute." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Updated Changelog.md." />
     <MESSAGE value="Setup Complete&#10;&#10;Added minitest-reporters dependency. Added interface v. 2.0.0." />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup Complete&#10;&#10;Added minitest-reporters dependency. Added interface v. 2.0.0." />
+    <MESSAGE value="Development Complete&#10;&#10;Added 'b()', 'd()', and 'f()' methods. Added 'back_ref()', 'data_ref()', and 'front_ref()' protected methods. Fixed infinite loop bug in '==' method. Moved 'data()', 'back()', and 'front()' methods. Factored tests. Formatted node_impl_test.rb. Added tests covering additions and editions. Removed minitest-reporters. minitest-reporters removed IDE functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Development Complete&#10;&#10;Added 'b()', 'd()', and 'f()' methods. Added 'back_ref()', 'data_ref()', and 'front_ref()' protected methods. Fixed infinite loop bug in '==' method. Moved 'data()', 'back()', and 'front()' methods. Factored tests. Formatted node_impl_test.rb. Added tests covering additions and editions. Removed minitest-reporters. minitest-reporters removed IDE functionality." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -587,10 +590,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.975@0.23.1680.975" timestamp="1583956104509" />
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1586988913594">
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1586990170559">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1586988913594" />
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1586990170559" />
     <state x="144" y="123" width="1391" height="774" key="DiffContextDialog" timestamp="1586569396018">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
