@@ -46,7 +46,7 @@ class Node < NodeInt
   #   self's clone. The attribute references are self's attribute references.
   #   The instances are frozen.
   def clone_df()
-    n = Node.new(back(), data(), front())
+    n = Node.new(b(), d(), f())
     return n
   end
 
@@ -66,40 +66,40 @@ class Node < NodeInt
       raise(error, error.message())
     else
 
-      self.back  = rhs.back()
-      self.data  = rhs.data()
-      self.front = rhs.front()
+      self.back  = rhs.back_ref()
+      self.data  = rhs.data_ref()
+      self.front = rhs.front_ref()
       return nil
 
     end
 
   end
 
-  # data().
+  # b().
   # @description
-  #   Gets the data attribute reference.
+  #   Gets back.
+  # @return [Node, NilClass]
+  #   back's reference, frozen.
+  def b()
+    return back().freeze()
+  end
+
+  # d().
+  # @description
+  #   Gets data.
   # @return [DataType]
-  #   The data instance, frozen.
-  def data()
-    return @data.freeze()
+  #   data's reference, frozen.
+  def d()
+    return data().freeze()
   end
 
-  # back().
+  # f().
   # @description
-  #   Gets the back Node reference.
-  # @return [Node]
-  #   The back Node reference, frozen.
-  def back()
-    return @back.freeze()
-  end
-
-  # front().
-  # @description
-  #   Gets the front Node reference.
-  # @return [Node]
-  #   The front Node reference, frozen.
-  def front()
-    return @front.freeze()
+  #   Gets front.
+  # @return [Node, NilClass]
+  #   front's reference, frozen.
+  def f()
+    return front().freeze()
   end
 
   # type().
@@ -125,7 +125,8 @@ class Node < NodeInt
     if (!n.instance_of?(Node))
       return false
     else
-      eq = ((back() == n.back()) && data() == n.data() && front() == n.front())
+      eq = (back().eql?(n.back_ref()) && (data() == n.data_ref()) &&
+          front().eql?(n.front_ref()))
       return eq
     end
 
@@ -176,7 +177,63 @@ class Node < NodeInt
 
   end
 
+  protected
+
+  # back_ref().
+  # @description
+  #   Gets back's reference.
+  # @return [Node, NilClass]
+  #   The reference.
+  def back_ref()
+    return back()
+  end
+
+  # data_ref().
+  # @description
+  #   Gets data's reference.
+  # @return [DataType]
+  #   data's reference.
+  def data_ref()
+    return data()
+  end
+
+  # front_ref().
+  # @description
+  #   Gets front's reference.
+  # @return [Node, NilClass]
+  #   front's reference.
+  def front_ref()
+    return front()
+  end
+
   private
+
+  # data().
+  # @description
+  #   Gets data.
+  # @return [DataType]
+  #   The data reference.
+  def data()
+    return @data
+  end
+
+  # back().
+  # @description
+  #   Gets back.
+  # @return [Node]
+  #   back's Node reference.
+  def back()
+    return @back
+  end
+
+  # front().
+  # @description
+  #   Gets front.
+  # @return [Node]
+  #   front's Node reference.
+  def front()
+    return @front
+  end
 
   # back=(n = nil).
   # @description
