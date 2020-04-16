@@ -41,12 +41,12 @@ donations are available at $1, $2, $4, $8, and $16. Greatly appreciated.}
   # Development and testing dependencies.
   spec.add_development_dependency "bundler", "~> 2.1.0"
   spec.add_development_dependency "simplecov", "~> 0.17.0"
-  spec.add_development_dependency 'node_int', '~> 2.0.0'
+  spec.add_development_dependency 'node_int', '~> 2.1.0'
   spec.add_development_dependency 'node_error', '~> 3.0.0'
   spec.add_development_dependency 'data_library', '~> 0.1.0'
 
   # Gem specific runtime dependencies.
-  spec.add_runtime_dependency 'node_int', '~> 2.0.0'
+  spec.add_runtime_dependency 'node_int', '~> 2.1.0'
   spec.add_runtime_dependency 'node_error', '~> 3.0.0'
   spec.add_runtime_dependency 'data_library', '~> 0.1.0'
 

@@ -9,11 +9,13 @@ class NodeImplTest < Minitest::Test
   CLASS          = Node
   ONE            = 1
   INTEGER_DATA   = 2
-  NIL_DATA       = nil
+  NILCLASS_DATA   = nil
   SYMBOL_DATA    = :test_symbol
   TRUECLASS_DATA = true
+  FALSECLASS_DATA = false
   TIME_DATA      = Time.now()
   STRING_DATA    = 'test'
+  FLOAT_DATA      = 0.0
   INVALID_DATA   = {}
 
   # test_conf_doc_f_ex().
@@ -43,13 +45,52 @@ class NodeImplTest < Minitest::Test
   #   Set fixtures.
   def setup()
 
-    @node1 = Node.new(NIL_DATA, INTEGER_DATA, NIL_DATA)
-    @node2 = CLASS.new(NIL_DATA, NIL_DATA, NIL_DATA)
-    @node3 = CLASS.new(@node1, ONE, NIL_DATA)
-    @node4 = CLASS.new(NIL_DATA, SYMBOL_DATA, @node1)
-    b      = CLASS.new(CLASS.new(), TRUECLASS_DATA, NIL_DATA)
-    f      = CLASS.new(NIL_DATA, ONE, CLASS.new())
+    @node  = CLASS.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
+    @node1 = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
+    @node2 = CLASS.new(NILCLASS_DATA, NILCLASS_DATA, NILCLASS_DATA)
+    @node3 = CLASS.new(@node1, ONE, NILCLASS_DATA)
+    @node4 = CLASS.new(NILCLASS_DATA, SYMBOL_DATA, @node1)
+    b      = CLASS.new(CLASS.new(), TRUECLASS_DATA, NILCLASS_DATA)
+    f      = CLASS.new(NILCLASS_DATA, ONE, CLASS.new())
     @node5 = CLASS.new(b, 4, f)
+
+  end
+
+  # shallow_clone()
+
+  # test_sc_x1().
+  # @description
+  #   back and front are nil.
+  def test_sc_x1()
+
+    n   = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
+    n_c = n.shallow_clone()
+    assert_equal(n, n_c)
+
+  end
+
+  # test_sc_x2().
+  # @description
+  #   back or front is nil, and not both.
+  def test_sc_x2()
+
+    f_n = Node.new(NILCLASS_DATA, FLOAT_DATA, NILCLASS_DATA)
+    n   = Node.new(NILCLASS_DATA, SYMBOL_DATA, f_n)
+    n_c = n.shallow_clone()
+    refute_equal(n, n_c)
+
+  end
+
+  # test_sc_x3().
+  # @description
+  #   back and front are Node instances.
+  def test_sc_x3()
+
+    b_n = Node.new(NILCLASS_DATA, FLOAT_DATA, NILCLASS_DATA)
+    f_n = Node.new(NILCLASS_DATA, TRUECLASS_DATA, NILCLASS_DATA)
+    n   = Node.new(b_n, FALSECLASS_DATA, f_n)
+    n_c = n.shallow_clone()
+    refute_equal(n, n_c)
 
   end
 
@@ -60,7 +101,7 @@ class NodeImplTest < Minitest::Test
   #   A Node back, nil data, and nil front.
   def test_cdf_x1()
 
-    n       = Node.new(@node1, NIL_DATA, NIL_DATA)
+    n       = Node.new(@node1, NILCLASS_DATA, NILCLASS_DATA)
     n_clone = n.clone_df()
     assert_equal(n_clone, n)
 
@@ -71,7 +112,7 @@ class NodeImplTest < Minitest::Test
   #   A nil back, nil data, and Node front.
   def test_cdf_x2()
 
-    n       = Node.new(NIL_DATA, NIL_DATA, @node1)
+    n = Node.new(NILCLASS_DATA, NILCLASS_DATA, @node1)
     n_clone = n.clone_df()
     assert_equal(n, n_clone)
 
@@ -82,8 +123,8 @@ class NodeImplTest < Minitest::Test
   #   A Node back, nil data, and Node front.
   def test_cdf_x3()
 
-    node2   = Node.new(NIL_DATA, NIL_DATA, NIL_DATA)
-    n       = Node.new(@node1, NIL_DATA, node2)
+    node2   = Node.new(NILCLASS_DATA, NILCLASS_DATA, NILCLASS_DATA)
+    n       = Node.new(@node1, NILCLASS_DATA, node2)
     n_clone = n.clone_df()
     assert_equal(n, n_clone)
 
@@ -96,7 +137,7 @@ class NodeImplTest < Minitest::Test
   #   The argument is not a Node instance.
   def test_sub_x1()
 
-    n = Node.new(NIL_DATA, INTEGER_DATA, NIL_DATA)
+    n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
     assert_raises(NodeError) {
       n.substitute(SYMBOL_DATA)
     }
@@ -108,7 +149,7 @@ class NodeImplTest < Minitest::Test
   #   back is nil, data is nil, and front is a Node.
   def test_sub_x2()
 
-    n = Node.new(NIL_DATA, NIL_DATA, @node1)
+    n = Node.new(NILCLASS_DATA, NILCLASS_DATA, @node1)
     @node1.substitute(n)
     assert_equal(@node1, n)
 
@@ -119,7 +160,7 @@ class NodeImplTest < Minitest::Test
   #   back is a Node, data is nil, and front is nil.
   def test_sub_x3()
 
-    n = Node.new(@node1, NIL_DATA, NIL_DATA)
+    n = Node.new(@node1, NILCLASS_DATA, NILCLASS_DATA)
     @node1.substitute(n)
     assert_equal(@node1, n)
 
@@ -138,8 +179,8 @@ class NodeImplTest < Minitest::Test
   #   back is a Node, data is nil, and front is a Node.
   def test_sub_x5()
 
-    f_n = Node.new(NIL_DATA, NIL_DATA, NIL_DATA)
-    n   = Node.new(@node1, NIL_DATA, f_n)
+    f_n = Node.new(NILCLASS_DATA, NILCLASS_DATA, NILCLASS_DATA)
+    n   = Node.new(@node1, NILCLASS_DATA, f_n)
     @node1.substitute(n)
     assert_equal(@node1, n)
 
@@ -151,7 +192,7 @@ class NodeImplTest < Minitest::Test
   # @description
   #   A nil back reference.
   def test_b_x1()
-    assert_same(NIL_DATA, @node1.b())
+    assert_same(NILCLASS_DATA, @node1.b())
   end
 
   # test_b_x2().
@@ -159,7 +200,7 @@ class NodeImplTest < Minitest::Test
   #   A Node instance.
   def test_b_x2()
 
-    n = Node.new(@node1, STRING_DATA, NIL_DATA)
+    n = Node.new(@node1, STRING_DATA, NILCLASS_DATA)
     assert_same(n.b(), @node1)
     assert_raises(FrozenError) {
       back_n = n.b()
@@ -175,7 +216,7 @@ class NodeImplTest < Minitest::Test
   #   A valid DataType type instance.
   def test_d_x1()
 
-    n = Node.new(NIL_DATA, TIME_DATA, NIL_DATA)
+    n = Node.new(NILCLASS_DATA, TIME_DATA, NILCLASS_DATA)
     assert_same(n.d(), TIME_DATA)
     assert_predicate(n.d(), :frozen?)
 
@@ -187,8 +228,8 @@ class NodeImplTest < Minitest::Test
   # @description
   #   front is nil.
   def test_f_x1()
-    n = Node.new(NIL_DATA, INTEGER_DATA, NIL_DATA)
-    assert_same(NIL_DATA, n.f())
+    n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
+    assert_same(NILCLASS_DATA, n.f())
   end
 
   # test_f_x2().
@@ -196,7 +237,7 @@ class NodeImplTest < Minitest::Test
   #   front refers a Node instance.
   def test_f_x2()
 
-    n = Node.new(NIL_DATA, INTEGER_DATA, @node1)
+    n = Node.new(NILCLASS_DATA, INTEGER_DATA, @node1)
     assert_same(n.f(), @node1)
     assert_raises(FrozenError) {
       front_n = n.f()
@@ -233,7 +274,7 @@ class NodeImplTest < Minitest::Test
   def test_attr_eq_x2b_y1()
 
     x2 = @node3
-    x1 = CLASS.new(@node1, ONE, NIL_DATA)
+    x1 = CLASS.new(@node1, ONE, NILCLASS_DATA)
     assert_operator(x1, '==', x2)
 
   end
@@ -252,7 +293,7 @@ class NodeImplTest < Minitest::Test
   # @description
   #   A data value initialized node gets appropriately.
   def test_data_value_gets()
-    value_node = CLASS.new(NIL_DATA, ONE, NIL_DATA)
+    value_node = CLASS.new(NILCLASS_DATA, ONE, NILCLASS_DATA)
     assert_operator(ONE, 'equal?', value_node.d())
   end
 
@@ -262,7 +303,7 @@ class NodeImplTest < Minitest::Test
   def test_data_object_gets()
 
     data_obj = 'test string'
-    do_node  = CLASS.new(NIL_DATA, data_obj, NIL_DATA)
+    do_node = CLASS.new(NILCLASS_DATA, data_obj, NILCLASS_DATA)
     assert_same(data_obj, do_node.d())
 
   end
@@ -324,7 +365,7 @@ class NodeImplTest < Minitest::Test
   #   A nil back and a Node front returns a forward arrow diagram.
   def test_insp_x3_y3()
 
-    x3            = Node.new(NIL_DATA, NIL_DATA, @node1)
+    x3 = Node.new(NILCLASS_DATA, NILCLASS_DATA, @node1)
     data_text     = "data: #{x3.d()}"
     padding       = (26 - data_text.length()) / 2
     space         = ' ' * padding
@@ -354,6 +395,78 @@ class NodeImplTest < Minitest::Test
     y4            = x4.inspect()
     assert_equal(expected, y4)
 
+  end
+
+  # attach_back(n = nil)
+
+  # test_ab_x1().
+  # @description
+  #   A Node argument.
+  def test_ab_x1()
+
+    n   = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
+    a_n = Node.new(NILCLASS_DATA, STRING_DATA, NILCLASS_DATA)
+    n.attach_back(a_n)
+    assert_same(a_n, n.b())
+
+  end
+
+  # test_ab_x2().
+  # @description
+  #   An argument type other than Node.
+  def test_ab_x2()
+
+    assert_raises(ArgumentError) {
+      n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
+      n.attach_back(STRING_DATA)
+    }
+
+  end
+
+  # attach_front(n = nil)
+
+  # test_af_x1().
+  # @description
+  #   The argument's class is Node.
+  def test_af_x1()
+
+    a_n = Node.new(NILCLASS_DATA, TIME_DATA, NILCLASS_DATA)
+    n   = Node.new(NILCLASS_DATA, SYMBOL_DATA, NILCLASS_DATA)
+    n.attach_front(a_n)
+    assert_same(a_n, n.f())
+
+  end
+
+  # test_af_x2().
+  # @description
+  #   The argument is not a Node.
+  def test_af_x2()
+
+    n = Node.new(NILCLASS_DATA, STRING_DATA, NILCLASS_DATA)
+    assert_raises(ArgumentError) {
+      n.attach_front(STRING_DATA)
+    }
+
+  end
+
+  # detach_back()
+
+  # test_detachb_x().
+  # @description
+  #   A Node.
+  def test_detachb_x()
+    @node.detach_back()
+    assert_same(NILCLASS_DATA, @node.b())
+  end
+
+  # detach_front()
+
+  # test_detachf_x().
+  # @description
+  #   A Node.
+  def test_detachf_x()
+    @node.detach_front()
+    assert_same(NILCLASS_DATA, @node.f())
   end
 
   # back=(node = nil)

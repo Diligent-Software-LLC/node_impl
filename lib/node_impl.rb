@@ -39,6 +39,18 @@ class Node < NodeInt
 
   end
 
+  # shallow_clone().
+  # @description
+  #   Shallowly clones.
+  # @return [Node]
+  #   self's shallow clone. In the case self contains Node references, its
+  #   clone's Node references differ. self's and its clone's data references
+  #   are identical.
+  def shallow_clone()
+    n = Node.new(back().clone(), data().clone(), front().clone())
+    return n
+  end
+
   # clone_df().
   # @description
   #   Clones deeply, and freezes the deep clones.
@@ -175,6 +187,62 @@ class Node < NodeInt
     diagram = upper + "\n" + lower
     return diagram
 
+  end
+
+  # attach_back(n = nil).
+  # @description
+  #   Attaches back a Node.
+  # @param n [Node]
+  #   An attachment Node.
+  # @return [NilClass]
+  #   nil.
+  # @raise [ArgumentError]
+  #   In the case the argument is any type other than Node.
+  def attach_back(n = nil)
+
+    if (!n.instance_of?(Node))
+      raise(ArgumentError, "#{n} is not a Node instance.")
+    else
+      self.back = n
+    end
+
+  end
+
+  # attach_front(n = nil).
+  # @description
+  #   Attaches front the argument Node.
+  # @param n [Node]
+  #   The attachment.
+  # @return [NilClass]
+  #   nil.
+  # @raise [ArgumentError]
+  #   In the case the argument is any type other than Node.
+  def attach_front(n = nil)
+
+    if (!n.instance_of?(Node))
+      raise(ArgumentError, "#{n} is not a Node instance.")
+    else
+      self.front = n
+    end
+
+  end
+
+  # detach_back().
+  # @description
+  #   Sets back nil.
+  # @return [NilClass]
+  #   nil.
+  def detach_back()
+    self.back = nil
+  end
+
+  # detach_front().
+  # @description
+  #   Sets front nil.
+  # @return [NilClass]
+  #   nil.
+  def detach_front()
+    self.front = nil
   end
 
   protected
