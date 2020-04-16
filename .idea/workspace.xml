@@ -67,14 +67,9 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Prepare Deployment&#10;&#10;Updated Changelog.md.">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Prepare Deployment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/node_impl.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/node_impl/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl/version.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_impl.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_impl.gemspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/node_impl_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/node_impl_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.md" afterDir="false" />
     </list>
     <list id="f85580a0-d3e2-4954-91e1-b0bb3e69790a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -87,7 +82,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="415" />
+    <option name="myElementSize" value="423" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -377,7 +372,7 @@
       <workItem from="1584740252043" duration="34994000" />
       <workItem from="1586536674460" duration="19768000" />
       <workItem from="1586977665406" duration="11993000" />
-      <workItem from="1587066261387" duration="4513000" />
+      <workItem from="1587066261387" duration="5294000" />
     </task>
     <task id="LOCAL-00002" summary="NImp-1 Configure Gem Specification (project_name.gemspec)&#10;&#10;Specified the gem. Attributes, metadata, and dependencies written. Updated version syntax in version.rb.">
       <created>1583877906521</created>
@@ -533,12 +528,19 @@
       <option name="project" value="LOCAL" />
       <updated>1586990482839</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Setup, Development Complete&#10;&#10;Added 'shallow_clone()', 'attach_back(n = nil)', 'attach_front(n = nil)', 'detach_back()', and 'detach_front()' methods. Added test constants. Added shallow_clone, attach_back, attach_front, detach_back, and detach_front method tests. Bumped the interface dependency.">
+      <created>1587073659895</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1587073659896</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <option name="createBranch" value="false" />
     <option name="useBranch" value="true" />
     <servers>
       <YouTrack url="https://macbook-pro.local:8443">
-        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation #{Development} Sprints: 4" />
+        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation #{Prepare Deployment} Sprints: 4" />
         <option name="preferredOpenTaskState">
           <CustomTaskState id="Done" name="Done" />
         </option>
@@ -580,7 +582,8 @@
     <MESSAGE value="Setup Complete&#10;&#10;Added minitest-reporters dependency. Added interface v. 2.0.0." />
     <MESSAGE value="Development Complete&#10;&#10;Added 'b()', 'd()', and 'f()' methods. Added 'back_ref()', 'data_ref()', and 'front_ref()' protected methods. Fixed infinite loop bug in '==' method. Moved 'data()', 'back()', and 'front()' methods. Factored tests. Formatted node_impl_test.rb. Added tests covering additions and editions. Removed minitest-reporters. minitest-reporters removed IDE functionality." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Updated Changelog.md." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepare Deployment&#10;&#10;Updated Changelog.md." />
+    <MESSAGE value="Setup, Development Complete&#10;&#10;Added 'shallow_clone()', 'attach_back(n = nil)', 'attach_front(n = nil)', 'detach_back()', and 'detach_front()' methods. Added test constants. Added shallow_clone, attach_back, attach_front, detach_back, and detach_front method tests. Bumped the interface dependency." />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup, Development Complete&#10;&#10;Added 'shallow_clone()', 'attach_back(n = nil)', 'attach_front(n = nil)', 'detach_back()', and 'detach_front()' methods. Added test constants. Added shallow_clone, attach_back, attach_front, detach_back, and detach_front method tests. Bumped the interface dependency." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -608,10 +611,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.975@0.23.1680.975" timestamp="1583956104509" />
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1586990482378">
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1587074001275">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1586990482378" />
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1587074001275" />
     <state x="144" y="123" width="1391" height="774" key="DiffContextDialog" timestamp="1586990746735">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -668,10 +671,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1586544285034" />
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1587073299619">
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1587073692369">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1587073299619" />
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1587073692369" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/node_impl@test_b_or_f_sub.rcov" NAME="test_b_or_f_sub Coverage Results" MODIFIED="1583948316546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />

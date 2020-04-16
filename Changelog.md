@@ -1,5 +1,21 @@
 # Changelog
 
+## v3.1.0, 2020-04-16
+
+### Added
+
+- 'shallow_clone()', 'attach_back(n = nil)', 'attach_front(n = nil
+)', 'detach_back()', and 'detach_front()' methods.
+- Test constants.
+
+### Edited
+
+- Gem Specification. Bumped the interface dependency.
+- Tests. Added 'shallow_clone()', 'attach_back(n = nil)', 'attach_front(n = nil
+)', 'detach_back()', and 'detach_front' method tests.
+
+### Fixed
+
 ## v3.0.0, 2020-04-15
 
 ### Added
