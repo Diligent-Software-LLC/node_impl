@@ -2,7 +2,7 @@
 # under the GNU General Public License, Version 3. Refer LICENSE.txt.
 
 require_relative "node_impl/version"
-require_relative 'node_impl/inspect_helper'
+require_relative 'helpers/inspect_helper'
 require_relative 'helpers/state_helper'
 require 'data_library'
 require 'node_error_library'

@@ -1,5 +1,25 @@
 # Changelog
 
+## v3.2.0, 2020-04-17
+
+### Added
+
+- StateHelper module. Contains state helper predicates 'back_attached
+()', 'front_attached()', 'no_attachments()', 'empty()', 'base()', and
+ 'pioneer()'.
+- Corresponding StateHelper tests.
+
+### Edited
+
+- InspectHelper identifiers.
+- Node's 'substitute(rhs = nil)' method. Substitutes a DataType type instance
+ and the data attribute reference.
+- Substituted InspectHelper identifiers in Node's 'inspect()' method.
+- Rewrote NodeImplTest's 'substitute' tests.
+- Edited NodeImplTest tests depending on 3.1.0's 'substitute(rhs = nil)'.
+
+### Fixed
+
 ## v3.1.0, 2020-04-16
 
 ### Added
