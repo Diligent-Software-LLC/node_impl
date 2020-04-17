@@ -130,60 +130,25 @@ class NodeImplTest < Minitest::Test
 
   end
 
-  # substitute(rhs = nil)
+  # substitute(dti = nil)
 
-  # test_sub_x1().
+  # test_substitute_x1().
   # @description
-  #   The argument is not a Node instance.
-  def test_sub_x1()
+  #   An empty hash.
+  def test_substitute_x1()
 
-    n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    assert_raises(NodeError) {
-      n.substitute(SYMBOL_DATA)
+    assert_raises(DataError) {
+      @node.substitute(INVALID_DATA)
     }
 
   end
 
-  # test_sub_x2().
+  # test_substitute_x2().
   # @description
-  #   back is nil, data is nil, and front is a Node.
-  def test_sub_x2()
-
-    n = Node.new(NILCLASS_DATA, NILCLASS_DATA, @node1)
-    @node1.substitute(n)
-    assert_equal(@node1, n)
-
-  end
-
-  # test_sub_x3().
-  # @description
-  #   back is a Node, data is nil, and front is nil.
-  def test_sub_x3()
-
-    n = Node.new(@node1, NILCLASS_DATA, NILCLASS_DATA)
-    @node1.substitute(n)
-    assert_equal(@node1, n)
-
-  end
-
-  # test_sub_x4().
-  # @description
-  #   back is nil, data is nil, and front is nil.
-  def test_sub_x4()
-    @node1.substitute(@node1)
-    assert_equal(@node1, @node1)
-  end
-
-  # test_sub_x5().
-  # @description
-  #   back is a Node, data is nil, and front is a Node.
-  def test_sub_x5()
-
-    f_n = Node.new(NILCLASS_DATA, NILCLASS_DATA, NILCLASS_DATA)
-    n   = Node.new(@node1, NILCLASS_DATA, f_n)
-    @node1.substitute(n)
-    assert_equal(@node1, n)
-
+  #   A DataType type instance.
+  def test_substitute_x2()
+    @node.substitute(SYMBOL_DATA)
+    assert_same(@node.d(), SYMBOL_DATA)
   end
 
   # b()
@@ -204,7 +169,7 @@ class NodeImplTest < Minitest::Test
     assert_same(n.b(), @node1)
     assert_raises(FrozenError) {
       back_n = n.b()
-      back_n.substitute(n)
+      back_n.attach_back(n)
     }
 
   end
@@ -241,7 +206,7 @@ class NodeImplTest < Minitest::Test
     assert_same(n.f(), @node1)
     assert_raises(FrozenError) {
       front_n = n.f()
-      front_n.substitute(n)
+      front_n.attach_front(n)
     }
 
   end
@@ -487,12 +452,8 @@ class NodeImplTest < Minitest::Test
   # @description
   #   A valid Node becomes the back reference.
   def test_b_ass_x2b_y2()
-
-    x1    = @node1
-    sub_n = Node.new(@node1, nil, nil)
-    x1.substitute(sub_n)
-    assert_same(@node1, x1.b())
-
+    @node1.attach_back(@node)
+    assert_same(@node, @node1.b())
   end
 
   # data=(dti = nil)
@@ -504,8 +465,7 @@ class NodeImplTest < Minitest::Test
 
     x2a      = ONE
     expected = x2a
-    sub_n    = Node.new(nil, x2a, nil)
-    @node1.substitute(sub_n)
+    @node1.substitute(x2a)
     assert_same(expected, @node1.d())
 
   end
@@ -533,18 +493,6 @@ class NodeImplTest < Minitest::Test
     assert_raises(NodeError) {
       Node.new(nil, nil, x2a)
     }
-
-  end
-
-  # test_f_ass_x2b_y2().
-  # @description
-  #   A valid Node becomes the front reference.
-  def test_f_ass_x2b_y2()
-
-    x1    = @node1
-    sub_n = Node.new(nil, nil, @node2)
-    x1.substitute(sub_n)
-    assert_same(@node2, x1.f())
 
   end
 

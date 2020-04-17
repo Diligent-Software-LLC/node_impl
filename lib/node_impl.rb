@@ -3,6 +3,7 @@
 
 require_relative "node_impl/version"
 require_relative 'node_impl/inspect_helper'
+require_relative 'helpers/state_helper'
 require 'data_library'
 require 'node_error_library'
 
@@ -19,6 +20,7 @@ require 'node_error_library'
 class Node < NodeInt
 
   include InspectHelper
+  include StateHelper
 
   # initialize(b_n = nil, dti = nil, f_n = nil).
   # @description
@@ -62,29 +64,18 @@ class Node < NodeInt
     return n
   end
 
-  # substitute(rhs = nil).
+  # substitute(dti = nil).
   # @description
-  #   Assigns self's attribute references rhs's attribute references.
-  # @param rhs [Node]
-  #   The substitution node.
-  # @return [NilClass]
-  #   nil.
-  # @raise [NodeError]
-  #   In the case the argument is not a Node instance.
-  def substitute(rhs = nil)
-
-    error = NodeError.new()
-    if (!rhs.instance_of?(Node))
-      raise(error, error.message())
-    else
-
-      self.back  = rhs.back_ref()
-      self.data  = rhs.data_ref()
-      self.front = rhs.front_ref()
-      return nil
-
-    end
-
+  #   Substitutes data.
+  # @param dti [DataType]
+  #   The substitution data.
+  # @return [DataType]
+  #   The argument.
+  # @raise [DataError]
+  #   In the case the argument is not a DataType type instance.
+  def substitute(dti = nil)
+    self.data = dti
+    return dti
   end
 
   # b().
@@ -173,14 +164,14 @@ class Node < NodeInt
   def inspect()
 
     case
-    when back().nil?() && front().nil?()
-      lines = only_data_insp()
-    when !back().nil?() && front().nil?()
-      lines = nil_front_insp()
-    when back().nil?() && !front().nil?()
-      lines = nil_back_insp()
+    when no_attachments()
+      lines = lone_insp()
+    when pioneer()
+      lines = pioneer_insp()
+    when base()
+      lines = base_insp()
     else
-      lines = doubly_linked_insp()
+      lines = common_insp()
     end
     upper   = lines[:upper]
     lower   = lines[:lower]

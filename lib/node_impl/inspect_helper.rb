@@ -10,8 +10,7 @@ module InspectHelper
   ARROWLESS_LENGTH = 30
   ONE_ARROW_LENGTH = 33
   TWO_ARROW_LENGTH = 36
-  # Pipes and padding length.
-  P_AND_P_LENGTH   = 4
+  P_AND_P_LENGTH   = 4 # Pipes and padding length.
   MAX_BODY_LENGTH  = 26
   MIN_LOWER_LENGTH = 9
   ARROW_PADDING    = ' ' * 3
@@ -48,13 +47,13 @@ module InspectHelper
 
   end
 
-  # only_data_insp().
+  # lone_insp().
   # @description
   #   The back and front attributes are nil.
   # @return [Hash]
   #   A hash containing 'upper' and 'lower' hashes. The 'upper' and 'lower'
   #   hashes' values are the upper and lower row strings.
-  def only_data_insp()
+  def lone_insp()
 
     diagram_rows         = {}
     diagram_rows[:upper] = upper_row()
@@ -63,13 +62,13 @@ module InspectHelper
 
   end
 
-  # nil_back_insp().
+  # base_insp().
   # @description
   #   The back attribute is nil.
   # @return [Hash]
   #   A hash containing 'upper' and 'lower' hashes. The 'upper' and 'lower'
   #   hashes' values are the upper and lower row strings.
-  def nil_back_insp()
+  def base_insp()
 
     diagram_rows         = {}
     diagram_rows[:upper] = upper_row() + FRONT_ARROW
@@ -78,13 +77,13 @@ module InspectHelper
 
   end
 
-  # nil_front_insp().
+  # pioneer_insp().
   # @description
   #   The front attribute is nil.
   # @return [Hash]
   #   A hash containing 'upper' and 'lower' hashes. The 'upper' and 'lower'
   #   hashes' values are the upper and lower row strings.
-  def nil_front_insp()
+  def pioneer_insp()
 
     diagram_rows         = {}
     diagram_rows[:upper] = ARROW_PADDING + upper_row()
@@ -93,13 +92,13 @@ module InspectHelper
 
   end
 
-  # doubly_linked_insp().
+  # common_insp().
   # @description
   #   The front and back attributes refer nodes.
   # @return [Hash]
   #   A hash containing 'upper' and 'lower' hashes. The 'upper' and 'lower'
   #   hashes' values are the upper and lower row strings.
-  def doubly_linked_insp()
+  def common_insp()
 
     diagram_rows         = {}
     diagram_rows[:upper] = ARROW_PADDING + upper_row() + FRONT_ARROW
