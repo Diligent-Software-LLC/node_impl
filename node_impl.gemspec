@@ -14,14 +14,14 @@ integrable, and endurable Node library. Make a donation at the project's
 collective page: https://opencollective.com/node. One-time and recurring
 donations are available at $1, $2, $4, $8, and $16. Greatly appreciated.}
   spec.homepage              =
-      "https://docs.diligentsoftware.org/node-1/implementation"
-  spec.license               = "GPL-3.0"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.6.5")
+      'https://docs.diligentsoftware.org/node-1/implementation'
+  spec.license               = 'GPL-3.0'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.6.5')
 
   # Metadata.
   spec.metadata['homepage_uri']    = spec.homepage
   spec.metadata['source_code_uri'] =
-      "https://github.com/Diligent-Software-LLC/node_impl"
+      'https://github.com/Diligent-Software-LLC/node_impl'
   spec.metadata['changelog_uri']   =
       'https://www.docs.diligentsoftware.org/node-1/packages#' +
           'implementation_changelog'
@@ -39,15 +39,15 @@ donations are available at $1, $2, $4, $8, and $16. Greatly appreciated.}
   spec.require_paths = ["lib"]
 
   # Development and testing dependencies.
-  spec.add_development_dependency "bundler", "~> 2.1.0"
-  spec.add_development_dependency "simplecov", "~> 0.17.0"
-  spec.add_development_dependency 'node_int', '~> 2.2.0'
-  spec.add_development_dependency 'node_error', '~> 3.0.0'
-  spec.add_development_dependency 'data_library', '~> 0.1.0'
+  spec.add_development_dependency 'bundler', '~> 2.1'
+  spec.add_development_dependency 'simplecov', '~> 0'
+  spec.add_development_dependency 'node_int', '~> 2'
+  spec.add_development_dependency 'node_error', '~> 3'
+  spec.add_development_dependency 'data_library', '~> 0'
 
   # Gem specific runtime dependencies.
-  spec.add_runtime_dependency 'node_int', '~> 2.2.0'
-  spec.add_runtime_dependency 'node_error', '~> 3.0.0'
-  spec.add_runtime_dependency 'data_library', '~> 0.1.0'
+  spec.add_runtime_dependency 'node_int', '~> 2'
+  spec.add_runtime_dependency 'node_error', '~> 3'
+  spec.add_runtime_dependency 'data_library', '~> 0'
 
 end
