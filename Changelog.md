@@ -1,5 +1,18 @@
 # Changelog
 
+## v3.3.0, 2020-04-20
+
+### Added
+
+- 'node_adapter' v0 dependency.
+- 'require'd 'node_adapter'.
+- 'adapt()' test.
+- 'adapt()' method.
+
+### Edited
+
+### Fixed
+
 ## v3.2.1, 2020-04-20
 
 ### Added
