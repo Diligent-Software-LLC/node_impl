@@ -67,11 +67,10 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Prepare Deployment&#10;&#10;Removed deployment Travis CI configuration.">
+    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Setup Complete&#10;&#10;Reformatted Gem Specification. Edited dependency versioning. Depends on all backwardly-compatible versions.">
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/node_impl/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl/version.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_impl.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_impl.gemspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" />
     </list>
     <list id="f85580a0-d3e2-4954-91e1-b0bb3e69790a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -380,7 +379,7 @@
       <workItem from="1586977665406" duration="11993000" />
       <workItem from="1587066261387" duration="6452000" />
       <workItem from="1587155448475" duration="7418000" />
-      <workItem from="1587344678530" duration="422000" />
+      <workItem from="1587344678530" duration="6379000" />
     </task>
     <task id="LOCAL-00002" summary="NImp-1 Configure Gem Specification (project_name.gemspec)&#10;&#10;Specified the gem. Attributes, metadata, and dependencies written. Updated version syntax in version.rb.">
       <created>1583877906521</created>
@@ -585,12 +584,19 @@
       <option name="project" value="LOCAL" />
       <updated>1587165176831</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Setup Complete&#10;&#10;Reformatted Gem Specification. Edited dependency versioning. Depends on all backwardly-compatible versions.">
+      <created>1587345179865</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1587345179865</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <option name="createBranch" value="false" />
     <option name="useBranch" value="true" />
     <servers>
       <YouTrack url="https://macbook-pro.local:8443">
-        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation #{Setup } Sprints: 7" />
+        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation #{Development} Sprints: 7" />
         <option name="preferredOpenTaskState">
           <CustomTaskState id="Done" name="Done" />
         </option>
@@ -636,7 +642,8 @@
     <MESSAGE value="Development Complete&#10;&#10;Edited InspectHelper method identifiers. Edited Node's 'substitute' method. Substitutes a DataType type instance and the data attribute reference. Substituted InspectHelper identifiers in Node's 'inspect' method. Rewrote NodeImplTest's 'substitute' tests. Edited tests depending on 3.1.0's 'substitute'. Added a 'StateHelper' test file and corresponding tests." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Updated Changelog.md. Moved inspect_helper.rb." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Removed deployment Travis CI configuration." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepare Deployment&#10;&#10;Removed deployment Travis CI configuration." />
+    <MESSAGE value="Setup Complete&#10;&#10;Reformatted Gem Specification. Edited dependency versioning. Depends on all backwardly-compatible versions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup Complete&#10;&#10;Reformatted Gem Specification. Edited dependency versioning. Depends on all backwardly-compatible versions." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -668,10 +675,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.975@0.23.1680.975" timestamp="1583956104509" />
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1587165176881">
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1587345178856">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1587165176881" />
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1587345178856" />
     <state x="144" y="123" width="1391" height="774" key="DiffContextDialog" timestamp="1586990746735">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -680,22 +687,22 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="653" y="434" key="GitRewordDialog/0.23.1680.975@0.23.1680.975" timestamp="1586544046895" />
-    <state width="1549" height="271" key="GridCell.Tab.0.bottom" timestamp="1587344961377">
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom" timestamp="1587395403505">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1587344961377" />
-    <state width="1549" height="271" key="GridCell.Tab.0.center" timestamp="1587344961376">
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1587395403505" />
+    <state width="1549" height="271" key="GridCell.Tab.0.center" timestamp="1587395403504">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1587344961376" />
-    <state width="1549" height="271" key="GridCell.Tab.0.left" timestamp="1587344961376">
+    <state width="1549" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1587395403504" />
+    <state width="1549" height="271" key="GridCell.Tab.0.left" timestamp="1587395403503">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1587344961376" />
-    <state width="1549" height="271" key="GridCell.Tab.0.right" timestamp="1587344961377">
+    <state width="1549" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1587395403503" />
+    <state width="1549" height="271" key="GridCell.Tab.0.right" timestamp="1587395403504">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1587344961377" />
+    <state width="1549" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1587395403504" />
     <state x="645" y="435" key="ReplaceDuplicatesPrompt" timestamp="1586547866324">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -728,10 +735,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1587160246138" />
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1587344973992">
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1587395412627">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1587344973992" />
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1587395412627" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/node_impl@test_b_or_f_sub.rcov" NAME="test_b_or_f_sub Coverage Results" MODIFIED="1583948316546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />

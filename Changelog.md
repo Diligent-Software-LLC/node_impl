@@ -1,5 +1,15 @@
 # Changelog
 
+## v3.2.1, 2020-04-20
+
+### Added
+
+### Edited
+
+### Fixed
+
+- Gem Specification. Dependency versioning.
+
 ## v3.2.0, 2020-04-17
 
 ### Added
