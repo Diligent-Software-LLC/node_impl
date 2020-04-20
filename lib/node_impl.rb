@@ -6,6 +6,7 @@ require_relative 'helpers/inspect_helper'
 require_relative 'helpers/state_helper'
 require 'data_library'
 require 'node_error_library'
+require 'node_adapter'
 
 # Node.
 # @class_description
@@ -26,13 +27,13 @@ class Node < NodeInt
   # @description
   #   Initializes Node instances.
   # @param b_n [Node]
-  #   The back attribute assignment.
+  #   The back reference assignment.
   # @param f_n [Node]
-  #   The front attribute assignment.
+  #   The front reference assignment.
   # @param dti [DataType]
-  #   A DataType instance.
+  #   A DataType type instance.
   # @return [Node]
-  #   A Node instance.
+  #   An instance.
   def initialize(b_n = nil, dti = nil, f_n = nil)
 
     self.back  = b_n
@@ -234,6 +235,15 @@ class Node < NodeInt
   #   nil.
   def detach_front()
     self.front = nil
+  end
+
+  # adapt().
+  # @description
+  #   Instantiates an adapter.
+  # @return [NodeAdapter]
+  #   An adapter instance.
+  def adapt()
+    return NodeAdapter.new(self)
   end
 
   protected

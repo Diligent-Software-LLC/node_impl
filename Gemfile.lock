@@ -3,6 +3,7 @@ PATH
   specs:
     node_impl (3.2.1)
       data_library (~> 0)
+      node_adapter (~> 0)
       node_error (~> 3)
       node_int (~> 2)
 
@@ -24,6 +25,9 @@ GEM
     data_structure_error (1.2.1)
     docile (1.3.2)
     minitest (5.14.0)
+    node_adapter (0.1.1)
+      node_adapter_impl (~> 0)
+    node_adapter_impl (0.1.4)
     node_error (3.0.0)
       node_error_impl (~> 1.0.0)
       node_error_int (~> 1.0.0)
@@ -45,6 +49,7 @@ DEPENDENCIES
   bundler (~> 2.1)
   data_library (~> 0)
   minitest (~> 5.0)
+  node_adapter (~> 0)
   node_error (~> 3)
   node_impl!
   node_int (~> 2)

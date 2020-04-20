@@ -434,6 +434,21 @@ class NodeImplTest < Minitest::Test
     assert_same(NILCLASS_DATA, @node.f())
   end
 
+  # adapt()
+
+  # test_adapt_x().
+  # @description
+  #   self.
+  def test_adapt_x()
+
+    n_a = @node.adapt()
+    assert_same(NodeAdapter, n_a.class())
+    assert_same(n_a.back(), NILCLASS_DATA)
+    assert_same(n_a.data(), INTEGER_DATA)
+    assert_same(n_a.front(), NILCLASS_DATA)
+
+  end
+
   # back=(node = nil)
 
   # test_b_ass_x2a_y1().
