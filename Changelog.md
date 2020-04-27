@@ -1,5 +1,16 @@
 # Changelog
 
+## v3.4.0, 2020-04-27
+
+### Added
+
+### Edited
+
+### Fixed
+
+- node_impl.rb's 'require' data_library statement.
+- Tests using 'STRING_DATA' and 'TIME_DATA' constants.
+
 ## v3.3.0, 2020-04-20
 
 ### Added

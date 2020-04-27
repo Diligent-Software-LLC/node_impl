@@ -14,5 +14,5 @@ require 'node_int'
 # @attr front [Node]
 #   A front reference.
 class Node < NodeInt
-  VERSION = '3.3.0'.freeze()
+  VERSION = '3.4.0'.freeze()
 end

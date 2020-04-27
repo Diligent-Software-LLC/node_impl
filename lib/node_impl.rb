@@ -4,7 +4,7 @@
 require_relative "node_impl/version"
 require_relative 'helpers/inspect_helper'
 require_relative 'helpers/state_helper'
-require 'data_library'
+require 'data_type'
 require 'node_error_library'
 require 'node_adapter'
 

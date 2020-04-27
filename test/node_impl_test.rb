@@ -13,8 +13,6 @@ class NodeImplTest < Minitest::Test
   SYMBOL_DATA    = :test_symbol
   TRUECLASS_DATA = true
   FALSECLASS_DATA = false
-  TIME_DATA      = Time.now()
-  STRING_DATA    = 'test'
   FLOAT_DATA      = 0.0
   INVALID_DATA   = {}
 
@@ -165,7 +163,7 @@ class NodeImplTest < Minitest::Test
   #   A Node instance.
   def test_b_x2()
 
-    n = Node.new(@node1, STRING_DATA, NILCLASS_DATA)
+    n = Node.new(@node1, SYMBOL_DATA, NILCLASS_DATA)
     assert_same(n.b(), @node1)
     assert_raises(FrozenError) {
       back_n = n.b()
@@ -181,8 +179,8 @@ class NodeImplTest < Minitest::Test
   #   A valid DataType type instance.
   def test_d_x1()
 
-    n = Node.new(NILCLASS_DATA, TIME_DATA, NILCLASS_DATA)
-    assert_same(n.d(), TIME_DATA)
+    n = Node.new(NILCLASS_DATA, FLOAT_DATA, NILCLASS_DATA)
+    assert_same(n.d(), FLOAT_DATA)
     assert_predicate(n.d(), :frozen?)
 
   end
@@ -267,7 +265,7 @@ class NodeImplTest < Minitest::Test
   #   A data instance returns a reference.
   def test_data_object_gets()
 
-    data_obj = 'test string'
+    data_obj = 3.14
     do_node = CLASS.new(NILCLASS_DATA, data_obj, NILCLASS_DATA)
     assert_same(data_obj, do_node.d())
 
@@ -370,7 +368,7 @@ class NodeImplTest < Minitest::Test
   def test_ab_x1()
 
     n   = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    a_n = Node.new(NILCLASS_DATA, STRING_DATA, NILCLASS_DATA)
+    a_n = Node.new(NILCLASS_DATA, SYMBOL_DATA, NILCLASS_DATA)
     n.attach_back(a_n)
     assert_same(a_n, n.b())
 
@@ -383,7 +381,7 @@ class NodeImplTest < Minitest::Test
 
     assert_raises(ArgumentError) {
       n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-      n.attach_back(STRING_DATA)
+      n.attach_back(SYMBOL_DATA)
     }
 
   end
@@ -395,8 +393,8 @@ class NodeImplTest < Minitest::Test
   #   The argument's class is Node.
   def test_af_x1()
 
-    a_n = Node.new(NILCLASS_DATA, TIME_DATA, NILCLASS_DATA)
-    n   = Node.new(NILCLASS_DATA, SYMBOL_DATA, NILCLASS_DATA)
+    a_n = Node.new(NILCLASS_DATA, SYMBOL_DATA, NILCLASS_DATA)
+    n   = Node.new(NILCLASS_DATA, TRUECLASS_DATA, NILCLASS_DATA)
     n.attach_front(a_n)
     assert_same(a_n, n.f())
 
@@ -407,9 +405,9 @@ class NodeImplTest < Minitest::Test
   #   The argument is not a Node.
   def test_af_x2()
 
-    n = Node.new(NILCLASS_DATA, STRING_DATA, NILCLASS_DATA)
+    n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
     assert_raises(ArgumentError) {
-      n.attach_front(STRING_DATA)
+      n.attach_front(INTEGER_DATA)
     }
 
   end
