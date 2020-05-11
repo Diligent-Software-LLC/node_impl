@@ -42,23 +42,13 @@ module StateHelper
     return data().nil?()
   end
 
-  # base().
+  # both_attached().
   # @description
-  #   A back and front attribute predicate.
+  #   Predicate. Verifies 'back' and 'front' are attachments.
   # @return [TrueClass, FalseClass]
-  #   True in the case back refers nil and front refers a Node instance.
-  def base()
-    return(!back_attached() && front_attached())
-  end
-
-  # pioneer().
-  # @description
-  #   A back and front attribute predicate.
-  # @return [TrueClass, FalseClass]
-  #   True in the case back refers a Node instance and front refers nil.
-  #   False otherwise.
-  def pioneer()
-    return(back_attached() && !front_attached())
+  #   True in the case 'back' and 'front' refer Nodes. False otherwise.
+  def both_attached()
+    return (back_attached() && front_attached())
   end
 
 end

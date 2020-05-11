@@ -5,14 +5,13 @@ A doubly-linked Node data structure implementation. Implements the Node
 
 ## Installation
 
-- Refer the Implementation's Packages 
-[Installation](https://docs.diligentsoftware.org/node-1/packages#implementation_installation) 
-page section.
+- Refer the Implementation's 
+[Packages](https://docs.diligentsoftware.org/node-1/packages#implementation_installation).
 
 ## Documentation
 
 - Refer the Implementation's 
-[homepage](https://docs.diligentsoftware.org/node-1/implementation).
+[Homepage](https://docs.diligentsoftware.org/node-1/implementation).
 
 ## Contributing
 
@@ -25,8 +24,10 @@ donations are available at $1, $2, $4, $8, and $16. Greatly appreciated.
 
 ### Report Bugs
 
-- Refer the [Bug Reporting Procedure](https://github.com/Diligent-Software-LLC/node_impl/issues/1).
+- Refer the 
+[Bug Reporting Procedure](https://github.com/Diligent-Software-LLC/node_impl/issues/1).
 
 ### Fix Bugs
 
-- Refer the [Bug Fixing Procedure](https://github.com/Diligent-Software-LLC/node_impl/issues/2).
+- Refer the 
+[Bug Fixing Procedure](https://github.com/Diligent-Software-LLC/node_impl/issues/2).

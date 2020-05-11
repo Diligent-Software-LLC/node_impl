@@ -4,6 +4,7 @@
 require_relative "node_impl/version"
 require_relative 'helpers/inspect_helper'
 require_relative 'helpers/state_helper'
+require_relative 'helpers/kind_helper'
 require 'data_type'
 require 'node_error_library'
 require 'node_adapter'
@@ -22,6 +23,7 @@ class Node < NodeInt
 
   include InspectHelper
   include StateHelper
+  include KindHelper
 
   # initialize(b_n = nil, dti = nil, f_n = nil).
   # @description
