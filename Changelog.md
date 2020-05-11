@@ -1,5 +1,24 @@
 # Changelog
 
+## v3.5.0, 2020-05-11
+
+### Added
+
+- kind_helper.rb.
+- kind_helper_test.rb.
+- 'both_attached()' StateHelper predicate.
+
+### Edited
+
+- Refactored StateHelperTest's 'base' and 'pioneer' tests.
+- Updated StateHelperTest's constants, fixtures, and format.
+- README.md's Installation and Documentation sections.
+
+### Fixed
+
+- node_impl.rb's 'require' data_library statement.
+- Tests using 'STRING_DATA' and 'TIME_DATA' constants.
+
 ## v3.4.0, 2020-04-27
 
 ### Added
