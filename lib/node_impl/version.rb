@@ -5,14 +5,14 @@ require 'node_int'
 
 # Node.
 # @class_description
-#   A doubly-linked Node data structure implementation.
+#   A doubly-linked Node data structure library's implementation.
 # @attr back [Node]
-#   A back reference.
+#   A backward reference.
 # @attr data [DataType]
-#   Any instance. Refer the Data Library Homepage's
-#   {https://docs.diligentsoftware.org/data#data-types Data Types} section.
+#   Any instance. Refer the Data Library
+#   {https://docs.diligentsoftware.org/data#classification Classification}.
 # @attr front [Node]
-#   A front reference.
+#   A forward reference.
 class Node < NodeInt
-  VERSION = '3.5.0'.freeze()
+  VERSION = '4.0.0'.freeze()
 end

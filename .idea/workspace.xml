@@ -67,8 +67,12 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Development Complete&#10;&#10;Added kind_helper.rb. Added kind_helper_test.rb. Refactored StateHelperTest's 'base' and 'pioneer' tests. Updated StateHelperTest's constants, fixtures, and format. Added a 'both_attached()' StateHelper predicate. Bumped the Minor Version. Edited README.md's Installation and Documentation sections.">
-      <change beforePath="$PROJECT_DIR$/Changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.md" afterDir="false" />
+    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Prepare Deployment&#10;&#10;Updated Changelog.md.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/node_impl/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_impl.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_impl.gemspec" afterDir="false" />
     </list>
     <list id="f85580a0-d3e2-4954-91e1-b0bb3e69790a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -382,7 +386,9 @@
       <workItem from="1587155448475" duration="7418000" />
       <workItem from="1587344678530" duration="10896000" />
       <workItem from="1588015160648" duration="2100000" />
-      <workItem from="1589208194743" duration="4293000" />
+      <workItem from="1589208194743" duration="6268000" />
+      <workItem from="1589742330380" duration="49000" />
+      <workItem from="1589808074869" duration="754000" />
     </task>
     <task id="LOCAL-00002" summary="NImp-1 Configure Gem Specification (project_name.gemspec)&#10;&#10;Specified the gem. Attributes, metadata, and dependencies written. Updated version syntax in version.rb.">
       <created>1583877906521</created>
@@ -643,12 +649,19 @@
       <option name="project" value="LOCAL" />
       <updated>1589214841751</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Prepare Deployment&#10;&#10;Updated Changelog.md.">
+      <created>1589215144116</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1589215144116</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <option name="createBranch" value="false" />
     <option name="useBranch" value="true" />
     <servers>
       <YouTrack url="https://macbook-pro.local:8443">
-        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation State: {Prepare Deployment} Sprints: 8" />
+        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation State: {Setup} Sprints: 9" />
         <option name="preferredOpenTaskState">
           <CustomTaskState id="Done" name="Done" />
         </option>
@@ -693,12 +706,12 @@
     <MESSAGE value="Prepare Deployment&#10;&#10;Updated Changelog.md. Moved inspect_helper.rb." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Removed deployment Travis CI configuration." />
     <MESSAGE value="Setup Complete&#10;&#10;Reformatted Gem Specification. Edited dependency versioning. Depends on all backwardly-compatible versions." />
-    <MESSAGE value="Prepare Deployment&#10;&#10;Updated Changelog.md." />
     <MESSAGE value="Development Complete&#10;&#10;Added 'node_adapter' v0 dependency. 'require'd 'node_adapter'. Added 'adapt()' test. Added 'adapt()' method." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Bumped version. Updated Changelog.md." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Bumped Minor Version. Fixed node_impl.rb's 'require' data_library statement. Fixed tests using 'STRING_DATA' and 'TIME_DATA' constants. Updated Changelog.md." />
     <MESSAGE value="Development Complete&#10;&#10;Added kind_helper.rb. Added kind_helper_test.rb. Refactored StateHelperTest's 'base' and 'pioneer' tests. Updated StateHelperTest's constants, fixtures, and format. Added a 'both_attached()' StateHelper predicate. Bumped the Minor Version. Edited README.md's Installation and Documentation sections." />
-    <option name="LAST_COMMIT_MESSAGE" value="Development Complete&#10;&#10;Added kind_helper.rb. Added kind_helper_test.rb. Refactored StateHelperTest's 'base' and 'pioneer' tests. Updated StateHelperTest's constants, fixtures, and format. Added a 'both_attached()' StateHelper predicate. Bumped the Minor Version. Edited README.md's Installation and Documentation sections." />
+    <MESSAGE value="Prepare Deployment&#10;&#10;Updated Changelog.md." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepare Deployment&#10;&#10;Updated Changelog.md." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -730,10 +743,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.975@0.23.1680.975" timestamp="1583956104509" />
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1589214841343">
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1589215143806">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1589214841343" />
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1589215143806" />
     <state x="144" y="123" width="1391" height="774" key="DiffContextDialog" timestamp="1586990746735">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -742,22 +755,22 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="653" y="434" key="GitRewordDialog/0.23.1680.975@0.23.1680.975" timestamp="1586544046895" />
-    <state width="1549" height="271" key="GridCell.Tab.0.bottom" timestamp="1589214113154">
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom" timestamp="1589217616926">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1589214113154" />
-    <state width="1549" height="271" key="GridCell.Tab.0.center" timestamp="1589214113153">
+    <state width="1549" height="271" key="GridCell.Tab.0.bottom/0.23.1680.975@0.23.1680.975" timestamp="1589217616926" />
+    <state width="1549" height="271" key="GridCell.Tab.0.center" timestamp="1589217616925">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1589214113153" />
-    <state width="1549" height="271" key="GridCell.Tab.0.left" timestamp="1589214113153">
+    <state width="1549" height="271" key="GridCell.Tab.0.center/0.23.1680.975@0.23.1680.975" timestamp="1589217616925" />
+    <state width="1549" height="271" key="GridCell.Tab.0.left" timestamp="1589217616916">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1589214113153" />
-    <state width="1549" height="271" key="GridCell.Tab.0.right" timestamp="1589214113153">
+    <state width="1549" height="271" key="GridCell.Tab.0.left/0.23.1680.975@0.23.1680.975" timestamp="1589217616916" />
+    <state width="1549" height="271" key="GridCell.Tab.0.right" timestamp="1589217616926">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state width="1549" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1589214113153" />
+    <state width="1549" height="271" key="GridCell.Tab.0.right/0.23.1680.975@0.23.1680.975" timestamp="1589217616926" />
     <state x="645" y="435" key="ReplaceDuplicatesPrompt" timestamp="1586547866324">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -770,10 +783,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="332" key="SimpleOpenTaskDialog/0.23.1680.975@0.23.1680.975" timestamp="1583878111638" />
-    <state x="424" y="250" key="Vcs.Push.Dialog.v2" timestamp="1588017453882">
+    <state x="424" y="250" key="Vcs.Push.Dialog.v2" timestamp="1589217566453">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="424" y="250" key="Vcs.Push.Dialog.v2/0.23.1680.975@0.23.1680.975" timestamp="1588017453882" />
+    <state x="424" y="250" key="Vcs.Push.Dialog.v2/0.23.1680.975@0.23.1680.975" timestamp="1589217566453" />
     <state x="636" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584808690434">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -790,10 +803,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1589212251464" />
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1589214902251">
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1589808630780">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1589214902251" />
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1589808630780" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/node_impl@test_b_or_f_sub.rcov" NAME="test_b_or_f_sub Coverage Results" MODIFIED="1583948316546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />

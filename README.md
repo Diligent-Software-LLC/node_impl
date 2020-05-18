@@ -1,16 +1,16 @@
 # node_impl ![Gem](https://img.shields.io/gem/v/node_impl) ![Gem](https://img.shields.io/gem/dt/node_impl) [![Build Status](https://travis-ci.com/Diligent-Software-LLC/node_impl.svg?branch=master)](https://travis-ci.com/Diligent-Software-LLC/node_impl)
 
-A doubly-linked Node data structure implementation. Implements the Node
- interface.
+A doubly-linked Node data structure library's implementation. Implements the
+ library's interface.
 
 ## Installation
 
-- Refer the Implementation's 
+- Refer Implementation's 
 [Packages](https://docs.diligentsoftware.org/node-1/packages#implementation_installation).
 
 ## Documentation
 
-- Refer the Implementation's 
+- Refer Implementation's 
 [Homepage](https://docs.diligentsoftware.org/node-1/implementation).
 
 ## Contributing

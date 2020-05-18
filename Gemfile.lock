@@ -2,10 +2,6 @@ PATH
   remote: .
   specs:
     node_impl (3.5.0)
-      data_library (~> 0)
-      node_adapter (~> 0)
-      node_error (~> 3)
-      node_int (~> 2)
 
 GEM
   remote: https://rubygems.org/
