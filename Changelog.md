@@ -1,5 +1,25 @@
 # Changelog
 
+## v4.0.0, 2020-05-19
+
+### Added
+
+- public 'data()'.
+- public 'data=(dti = nil)'.
+- Test coverage.
+- diagram_factory_comp dependency.
+
+### Edited
+
+- Gem Specification email, summary, description, and dependencies.
+- README.md's repository description, Installation body, and Documentation body.
+- Deleted inspect_helper.rb.
+- Rewrote 'shallow_clone()', 'clone_df()', '==(n = nil)', and 'inspect()'.
+- Deleted 'substitute(dti = nil)', 'd()', 'adapt()', 'data_ref()', 'data()', 
+ 'data=(dti = nil)', and 'type()'.
+
+### Fixed
+
 ## v3.5.0, 2020-05-11
 
 ### Added

@@ -67,16 +67,8 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Setup Complete&#10;&#10;Bumped Minor Version. Edited Gem Specification email, summary, description, and dependencies. Edited README.md's repository description, Installation body, and Documentation body.">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/helpers/inspect_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/node_impl.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/node_impl.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_impl.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_impl.gemspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/helpers/state_helper_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers/state_helper_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/node_impl_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/node_impl_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_helper.rb" afterDir="false" />
+    <list default="true" id="70bb5e64-cdd9-4338-844e-202d07ac1563" name="NImp-1 Configure Gem Specification (project_name.gemspec)" comment="Development Complete&#10;&#10;Deleted inspect_helper.rb. Rewrote 'shallow_clone()', 'clone_df()', '==(n = nil)', and 'inspect()'. Deleted 'substitute(dti = nil)', 'd()', 'adapt()', 'data_ref()', 'data()', and 'data=(dti = nil)'. Added 'data()'. Deleted 'type()'. Added 'data=(dti = nil)'. Added test coverage. Added a diagram_factory_comp dependency.">
+      <change beforePath="$PROJECT_DIR$/Changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.md" afterDir="false" />
     </list>
     <list id="f85580a0-d3e2-4954-91e1-b0bb3e69790a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -398,7 +390,7 @@
       <workItem from="1589820506580" duration="1575000" />
       <workItem from="1589829263621" duration="776000" />
       <workItem from="1589831343849" duration="79000" />
-      <workItem from="1589831699289" duration="7957000" />
+      <workItem from="1589831699289" duration="9682000" />
     </task>
     <task id="LOCAL-00002" summary="NImp-1 Configure Gem Specification (project_name.gemspec)&#10;&#10;Specified the gem. Attributes, metadata, and dependencies written. Updated version syntax in version.rb.">
       <created>1583877906521</created>
@@ -673,12 +665,19 @@
       <option name="project" value="LOCAL" />
       <updated>1589808943621</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Development Complete&#10;&#10;Deleted inspect_helper.rb. Rewrote 'shallow_clone()', 'clone_df()', '==(n = nil)', and 'inspect()'. Deleted 'substitute(dti = nil)', 'd()', 'adapt()', 'data_ref()', 'data()', and 'data=(dti = nil)'. Added 'data()'. Deleted 'type()'. Added 'data=(dti = nil)'. Added test coverage. Added a diagram_factory_comp dependency.">
+      <created>1589897566804</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1589897566804</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <option name="createBranch" value="false" />
     <option name="useBranch" value="true" />
     <servers>
       <YouTrack url="https://macbook-pro.local:8443">
-        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation State: {Development} Sprints: 9" />
+        <option name="defaultSearch" value="project: Node Subsystem:{ No Subsystem} Component: Implementation State: {Prepare Deployment} Sprints: 9" />
         <option name="preferredOpenTaskState">
           <CustomTaskState id="Done" name="Done" />
         </option>
@@ -703,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="NImp-2 Rewrite README.md&#10;&#10;Wrote README.md." />
     <MESSAGE value="NImp-5 Configure Travis CI&#10;&#10;Used live template." />
     <MESSAGE value="NImp-7 Assert Copyright&#10;&#10;Added copyright statements in version.rb, node_impl.rb, and LICENSE.txt." />
     <MESSAGE value="NImp-10 Contributor Covenant contact&#10;&#10;Changed contact." />
@@ -728,7 +726,8 @@
     <MESSAGE value="Development Complete&#10;&#10;Added kind_helper.rb. Added kind_helper_test.rb. Refactored StateHelperTest's 'base' and 'pioneer' tests. Updated StateHelperTest's constants, fixtures, and format. Added a 'both_attached()' StateHelper predicate. Bumped the Minor Version. Edited README.md's Installation and Documentation sections." />
     <MESSAGE value="Prepare Deployment&#10;&#10;Updated Changelog.md." />
     <MESSAGE value="Setup Complete&#10;&#10;Bumped Minor Version. Edited Gem Specification email, summary, description, and dependencies. Edited README.md's repository description, Installation body, and Documentation body." />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup Complete&#10;&#10;Bumped Minor Version. Edited Gem Specification email, summary, description, and dependencies. Edited README.md's repository description, Installation body, and Documentation body." />
+    <MESSAGE value="Development Complete&#10;&#10;Deleted inspect_helper.rb. Rewrote 'shallow_clone()', 'clone_df()', '==(n = nil)', and 'inspect()'. Deleted 'substitute(dti = nil)', 'd()', 'adapt()', 'data_ref()', 'data()', and 'data=(dti = nil)'. Added 'data()'. Deleted 'type()'. Added 'data=(dti = nil)'. Added test coverage. Added a diagram_factory_comp dependency." />
+    <option name="LAST_COMMIT_MESSAGE" value="Development Complete&#10;&#10;Deleted inspect_helper.rb. Rewrote 'shallow_clone()', 'clone_df()', '==(n = nil)', and 'inspect()'. Deleted 'substitute(dti = nil)', 'd()', 'adapt()', 'data_ref()', 'data()', and 'data=(dti = nil)'. Added 'data()'. Deleted 'type()'. Added 'data=(dti = nil)'. Added test coverage. Added a diagram_factory_comp dependency." />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="175" key="#Servers" timestamp="1583873716997">
@@ -759,10 +758,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="572" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.975@0.23.1680.975" timestamp="1583956104509" />
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1589808943251">
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2" timestamp="1589897565701">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1589808943251" />
+    <state x="74" y="23" width="1529" height="974" key="CommitChangelistDialog2/0.23.1680.975@0.23.1680.975" timestamp="1589897565701" />
     <state x="144" y="123" width="1391" height="774" key="DiffContextDialog" timestamp="1586990746735">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -819,10 +818,10 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="489" y="235" width="670" height="675" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1589811630957" />
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1589811640207">
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1589897615377">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
-    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1589811640207" />
+    <state x="489" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1589897615377" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/node_impl@test_b_or_f_sub.rcov" NAME="test_b_or_f_sub Coverage Results" MODIFIED="1583948316546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="node_impl" />
