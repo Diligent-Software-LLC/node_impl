@@ -2,26 +2,24 @@
 # under the GNU General Public License, Version 3. Refer LICENSE.txt.
 
 require_relative "node_impl/version"
-require_relative 'helpers/inspect_helper'
 require_relative 'helpers/state_helper'
 require_relative 'helpers/kind_helper'
 require 'data_type'
 require 'node_error_library'
-require 'node_adapter'
+require 'diagram_factory_comp'
 
 # Node.
 # @class_description
-#   A doubly-linked Node data structure implementation.
+#   A doubly-linked Node data structure library's implementation.
 # @attr back [Node]
-#   A back node.
+#   A backward reference.
 # @attr data [DataType]
-#   Any DataType instance. Refer the Data Library Homepage's
-#   {https://docs.diligentsoftware.org/data#data-types Data Types} section.
+#   Any instance. Refer the Data Library
+#   {https://docs.diligentsoftware.org/data#classification Classification}.
 # @attr front [Node]
-#   A front node.
+#   A forward reference.
 class Node < NodeInt
 
-  include InspectHelper
   include StateHelper
   include KindHelper
 
@@ -48,37 +46,37 @@ class Node < NodeInt
   # @description
   #   Shallowly clones.
   # @return [Node]
-  #   self's shallow clone. In the case self contains Node references, its
-  #   clone's Node references differ. self's and its clone's data references
-  #   are identical.
+  #   A clone. The clone and self are not identical, and share the same
+  #   attribute references.
   def shallow_clone()
-    n = Node.new(back().clone(), data().clone(), front().clone())
-    return n
+
+    n = Node.new(back(), data(), front())
+    if (frozen?())
+      return n.freeze()
+    else
+      return n
+    end
+
   end
 
   # clone_df().
   # @description
-  #   Clones deeply, and freezes the deep clones.
+  #   Deeply clones.
   # @return [Node]
-  #   self's clone. The attribute references are self's attribute references.
-  #   The instances are frozen.
+  #   A deep clone. No Node references are identical. Data references are
+  #   identical.
   def clone_df()
-    n = Node.new(b(), d(), f())
-    return n
-  end
 
-  # substitute(dti = nil).
-  # @description
-  #   Substitutes data.
-  # @param dti [DataType]
-  #   The substitution data.
-  # @return [DataType]
-  #   The argument.
-  # @raise [DataError]
-  #   In the case the argument is not a DataType type instance.
-  def substitute(dti = nil)
-    self.data = dti
-    return dti
+    b = back().clone()
+    d = data()
+    f = front().clone()
+    n = Node.new(b, d, f)
+    if (frozen?())
+      return n.freeze()
+    else
+      return n
+    end
+
   end
 
   # b().
@@ -90,13 +88,13 @@ class Node < NodeInt
     return back().freeze()
   end
 
-  # d().
+  # data().
   # @description
-  #   Gets data.
+  #   Gets 'data'.
   # @return [DataType]
   #   data's reference, frozen.
-  def d()
-    return data().freeze()
+  def data()
+    return @data
   end
 
   # f().
@@ -108,13 +106,24 @@ class Node < NodeInt
     return front().freeze()
   end
 
-  # type().
+  # data=(dti = nil).
   # @description
-  #   Gets the data's type.
-  # @return [Class]
-  #   The data instance's constant identifier.
-  def type()
-    return @data.class()
+  #   Sets 'data'.
+  # @param dti [DataType]
+  #   The data setting.
+  # @return [DataType]
+  #   The argument.
+  # @raise [DataError]
+  #   In the case the argument is any type other than a DataType type.
+  def data=(dti = nil)
+
+    error = DataError.new()
+    unless (DataType.instance?(dti))
+      raise(error, error.message())
+    else
+      @data = dti
+    end
+
   end
 
   # ==(n = nil).
@@ -123,16 +132,15 @@ class Node < NodeInt
   # @param n [.]
   #   Any instance.
   # @return [TrueClass, FalseClass]
-  #   True in the case the back nodes are attributively equal, the data objects
-  #   are attributively equal, and the front nodes are attributively equal.
+  #   True in the case n is a Node and its attribute references are identical.
   #   False otherwise.
   def ==(n = nil)
 
-    if (!n.instance_of?(Node))
+    unless (n.instance_of?(Node))
       return false
     else
-      eq = (back().eql?(n.back_ref()) && (data() == n.data_ref()) &&
-          front().eql?(n.front_ref()))
+      eq = (back().equal?(n.back_ref()) && (data().equal?(n.data())) &&
+          (front().equal?(n.front_ref())))
       return eq
     end
 
@@ -151,101 +159,15 @@ class Node < NodeInt
 
   # inspect().
   # @description
-  #   Represents the Node structure diagrammatically. The diagram represents the
-  #   Node in an upper row and a lower row. The upper row contains the Node's
-  #   'to_s()' representation between pipes. In the case the Node's front
-  #   attribute refers a Node, there is a right arrow leading the right
-  #   pipe. The lower row is the data instance's evaluation between pipes and
-  #   following a 'data: ' label. In the case the Node's back attribute refers a
-  #   Node, preceding the left pipe is a left arrow. The InspectHelper
-  #   method calls return a hash containing :lower and :upper row hashes. The
-  #   row hashes' values are the corresponding row Strings. The inspect method
-  #   inserts a newline character between the row Strings, and returns their
-  #   concatenation.
+  #   Gets an existing Diagram, or builds one.
   # @return [String]
-  #   The representation diagram.
+  #   self's diagram.
   def inspect()
 
-    case
-    when no_attachments()
-      lines = lone_insp()
-    when pioneer()
-      lines = pioneer_insp()
-    when base()
-      lines = base_insp()
-    else
-      lines = common_insp()
-    end
-    upper   = lines[:upper]
-    lower   = lines[:lower]
-    diagram = upper + "\n" + lower
-    return diagram
+    df_singleton = DiagramFactory.instance()
+    diagram = df_singleton.diagram(self)
+    return diagram.form()
 
-  end
-
-  # attach_back(n = nil).
-  # @description
-  #   Attaches back a Node.
-  # @param n [Node]
-  #   An attachment Node.
-  # @return [NilClass]
-  #   nil.
-  # @raise [ArgumentError]
-  #   In the case the argument is any type other than Node.
-  def attach_back(n = nil)
-
-    if (!n.instance_of?(Node))
-      raise(ArgumentError, "#{n} is not a Node instance.")
-    else
-      self.back = n
-    end
-
-  end
-
-  # attach_front(n = nil).
-  # @description
-  #   Attaches front the argument Node.
-  # @param n [Node]
-  #   The attachment.
-  # @return [NilClass]
-  #   nil.
-  # @raise [ArgumentError]
-  #   In the case the argument is any type other than Node.
-  def attach_front(n = nil)
-
-    if (!n.instance_of?(Node))
-      raise(ArgumentError, "#{n} is not a Node instance.")
-    else
-      self.front = n
-    end
-
-  end
-
-  # detach_back().
-  # @description
-  #   Sets back nil.
-  # @return [NilClass]
-  #   nil.
-  def detach_back()
-    self.back = nil
-  end
-
-  # detach_front().
-  # @description
-  #   Sets front nil.
-  # @return [NilClass]
-  #   nil.
-  def detach_front()
-    self.front = nil
-  end
-
-  # adapt().
-  # @description
-  #   Instantiates an adapter.
-  # @return [NodeAdapter]
-  #   An adapter instance.
-  def adapt()
-    return NodeAdapter.new(self)
   end
 
   protected
@@ -259,15 +181,6 @@ class Node < NodeInt
     return back()
   end
 
-  # data_ref().
-  # @description
-  #   Gets data's reference.
-  # @return [DataType]
-  #   data's reference.
-  def data_ref()
-    return data()
-  end
-
   # front_ref().
   # @description
   #   Gets front's reference.
@@ -278,15 +191,6 @@ class Node < NodeInt
   end
 
   private
-
-  # data().
-  # @description
-  #   Gets data.
-  # @return [DataType]
-  #   The data reference.
-  def data()
-    return @data
-  end
 
   # back().
   # @description
@@ -320,24 +224,6 @@ class Node < NodeInt
       raise(error, error.message())
     else
       @back = n
-    end
-
-  end
-
-  # data=(dti = nil).
-  # @description
-  #   Assigns data the argument.
-  # @param dti [DataType]
-  #   A data type instance.
-  # @raise [DataError]
-  #   In the case the argument is anything other than a DataType instance.
-  def data=(dti = nil)
-
-    error = DataError.new()
-    if (!DataType.instance?(dti))
-      raise(error, error.message())
-    else
-      @data = dti
     end
 
   end

@@ -6,7 +6,7 @@ require_relative '../test_helper'
 class StateHelperTest < Minitest::Test
 
   # Constants.
-  NILCLASS_DATA = nil
+  NILCLASS_I = nil
   INTEGER_DATA  = 5
   TEST_SYMBOL   = :test_symbol
   TEST_FLOAT    = 3.14
@@ -16,9 +16,9 @@ class StateHelperTest < Minitest::Test
   #   Set fixtures.
   def setup()
 
-    @node1 = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    @node2 = Node.new(NILCLASS_DATA, TEST_SYMBOL, NILCLASS_DATA)
-    @node3 = Node.new(NILCLASS_DATA, TEST_FLOAT, NILCLASS_DATA)
+    @node1 = Node.new(NILCLASS_I, INTEGER_DATA, NILCLASS_I)
+    @node2 = Node.new(NILCLASS_I, TEST_SYMBOL, NILCLASS_I)
+    @node3 = Node.new(NILCLASS_I, TEST_FLOAT, NILCLASS_I)
 
   end
 
@@ -35,7 +35,7 @@ class StateHelperTest < Minitest::Test
   # @description
   #   A Node back.
   def test_bas_x2()
-    n = Node.new(@node1, NILCLASS_DATA, NILCLASS_DATA)
+    n = Node.new(@node1, NILCLASS_I, NILCLASS_I)
     assert_predicate(n, :back_attached)
   end
 
@@ -52,7 +52,7 @@ class StateHelperTest < Minitest::Test
   # @description
   #   front is a Node instance.
   def test_fa_x2()
-    n = Node.new(NILCLASS_DATA, INTEGER_DATA, @node1)
+    n = Node.new(NILCLASS_I, INTEGER_DATA, @node1)
     assert_predicate(n, :front_attached)
   end
 
@@ -62,7 +62,7 @@ class StateHelperTest < Minitest::Test
   # @description
   #   Both or one attribute is a Node instance.
   def test_na_x1()
-    n = Node.new(NILCLASS_DATA, TEST_SYMBOL, @node1)
+    n = Node.new(NILCLASS_I, TEST_SYMBOL, @node1)
     refute_predicate(n, :no_attachments)
   end
 
@@ -79,7 +79,7 @@ class StateHelperTest < Minitest::Test
   # @description
   #   data is nil.
   def test_empty_x1()
-    @node1.substitute(NILCLASS_DATA)
+    @node1.data = NILCLASS_I
     assert_predicate(@node1, :empty)
   end
 
@@ -104,7 +104,7 @@ class StateHelperTest < Minitest::Test
   # @description
   #   A Node bearing no 'back' attachment or no 'front' attachment.
   def test_botha_x2()
-    n = Node.new(NILCLASS_DATA, TEST_SYMBOL, @node2)
+    n = Node.new(NILCLASS_I, TEST_SYMBOL, @node2)
     refute_predicate(n, :both_attached)
   end
 

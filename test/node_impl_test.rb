@@ -9,17 +9,19 @@ class NodeImplTest < Minitest::Test
   CLASS          = Node
   ONE            = 1
   INTEGER_DATA   = 2
-  NILCLASS_DATA   = nil
-  SYMBOL_DATA    = :test_symbol
+  NILCLASS_I   = nil
+  TEST_SYMBOL    = :test_symbol
   TRUECLASS_DATA = true
   FALSECLASS_DATA = false
-  FLOAT_DATA      = 0.0
+  TEST_FLOAT      = 3.14
   INVALID_DATA   = {}
+  NODE1 = Node.new(NILCLASS_I, TEST_SYMBOL, NILCLASS_I)
 
   # test_conf_doc_f_ex().
   # @description
   #   The .travis.yml, CODE_OF_CONDUCT.md, Gemfile, LICENSE.txt, README.md,
-  #   and .yardopts files exist.
+  #   .yardopts, .gitignore, Changelog.md, CODE_OF_CONDUCT.md,
+  #   node_impl.gemspec, Gemfile.lock, and Rakefile files exist.
   def test_conf_doc_f_ex()
 
     assert_path_exists('.travis.yml')
@@ -28,6 +30,12 @@ class NodeImplTest < Minitest::Test
     assert_path_exists('LICENSE.txt')
     assert_path_exists('README.md')
     assert_path_exists('.yardopts')
+    assert_path_exists('.gitignore')
+    assert_path_exists('Changelog.md')
+    assert_path_exists('CODE_OF_CONDUCT.md')
+    assert_path_exists('node_impl.gemspec')
+    assert_path_exists('Gemfile.lock')
+    assert_path_exists('Rakefile')
 
   end
 
@@ -43,119 +51,143 @@ class NodeImplTest < Minitest::Test
   #   Set fixtures.
   def setup()
 
-    @node  = CLASS.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    @node1 = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    @node2 = CLASS.new(NILCLASS_DATA, NILCLASS_DATA, NILCLASS_DATA)
-    @node3 = CLASS.new(@node1, ONE, NILCLASS_DATA)
-    @node4 = CLASS.new(NILCLASS_DATA, SYMBOL_DATA, @node1)
-    b      = CLASS.new(CLASS.new(), TRUECLASS_DATA, NILCLASS_DATA)
-    f      = CLASS.new(NILCLASS_DATA, ONE, CLASS.new())
+    @node  = CLASS.new(NILCLASS_I, INTEGER_DATA, NILCLASS_I)
+    @node1 = Node.new(NILCLASS_I, INTEGER_DATA, NILCLASS_I)
+    @node2 = CLASS.new(NILCLASS_I, NILCLASS_I, NILCLASS_I)
+    @node3 = CLASS.new(@node1, ONE, NILCLASS_I)
+    @node4 = CLASS.new(NILCLASS_I, TEST_SYMBOL, @node1)
+    b      = CLASS.new(CLASS.new(), TRUECLASS_DATA, NILCLASS_I)
+    f      = CLASS.new(NILCLASS_I, ONE, CLASS.new())
     @node5 = CLASS.new(b, 4, f)
+    @lone = Node.new(NILCLASS_I, TEST_SYMBOL, NILCLASS_I)
+    @base = Node.new(NILCLASS_I, TEST_SYMBOL, @node1)
+    @common = Node.new(@node1, TEST_SYMBOL, @node2)
+    @pioneer = Node.new(@node1, TEST_SYMBOL, NILCLASS_I)
 
   end
 
-  # shallow_clone()
+  # shallow_clone().
 
   # test_sc_x1().
   # @description
-  #   back and front are nil.
+  #   Either 'back' or 'front' is a Node.
   def test_sc_x1()
 
-    n   = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    n_c = n.shallow_clone()
-    assert_equal(n, n_c)
+    clone = @base.shallow_clone()
+    assert_equal(clone, @base)
+    refute_same(clone, @base)
 
   end
 
   # test_sc_x2().
   # @description
-  #   back or front is nil, and not both.
+  #   'back' and 'front' are nil.
   def test_sc_x2()
 
-    f_n = Node.new(NILCLASS_DATA, FLOAT_DATA, NILCLASS_DATA)
-    n   = Node.new(NILCLASS_DATA, SYMBOL_DATA, f_n)
-    n_c = n.shallow_clone()
-    refute_equal(n, n_c)
+    clone = @lone.shallow_clone()
+    assert_equal(clone, @lone)
+    refute_same(clone, @lone)
 
   end
 
   # test_sc_x3().
   # @description
-  #   back and front are Node instances.
+  #   A frozen Node.
   def test_sc_x3()
 
-    b_n = Node.new(NILCLASS_DATA, FLOAT_DATA, NILCLASS_DATA)
-    f_n = Node.new(NILCLASS_DATA, TRUECLASS_DATA, NILCLASS_DATA)
-    n   = Node.new(b_n, FALSECLASS_DATA, f_n)
-    n_c = n.shallow_clone()
-    refute_equal(n, n_c)
+    frozen = Node.new(NILCLASS_I, TEST_FLOAT, NILCLASS_I)
+    frozen.freeze()
+    clone = frozen.shallow_clone()
+    assert_equal(clone, frozen)
+    refute_same(clone, frozen)
+    assert_predicate(clone, :frozen?)
 
   end
 
-  # clone_df()
+  # clone_df().
 
   # test_cdf_x1().
   # @description
-  #   A Node back, nil data, and nil front.
+  #   self's 'back' or 'front' is a Node.
   def test_cdf_x1()
 
-    n       = Node.new(@node1, NILCLASS_DATA, NILCLASS_DATA)
-    n_clone = n.clone_df()
-    assert_equal(n_clone, n)
+    clone = @pioneer.clone_df()
+    refute_same(clone, @pioneer)
+    refute_equal(clone, @pioneer)
 
   end
 
   # test_cdf_x2().
   # @description
-  #   A nil back, nil data, and Node front.
+  #   'back' and 'front' are nil.
   def test_cdf_x2()
 
-    n = Node.new(NILCLASS_DATA, NILCLASS_DATA, @node1)
-    n_clone = n.clone_df()
-    assert_equal(n, n_clone)
+    clone = @lone.clone_df()
+    refute_same(clone, @lone)
+    assert_equal(clone, @lone)
 
   end
 
   # test_cdf_x3().
   # @description
-  #   A Node back, nil data, and Node front.
+  #   'back' or 'front' is frozen.
   def test_cdf_x3()
 
-    node2   = Node.new(NILCLASS_DATA, NILCLASS_DATA, NILCLASS_DATA)
-    n       = Node.new(@node1, NILCLASS_DATA, node2)
-    n_clone = n.clone_df()
-    assert_equal(n, n_clone)
+    frozen_n = Node.new(NILCLASS_I, TEST_SYMBOL, NILCLASS_I)
+    p = Node.new(frozen_n, TEST_SYMBOL, NILCLASS_I)
+    clone = p.clone_df()
+    refute_same(clone, p)
+    refute_equal(clone, p)
 
   end
 
-  # substitute(dti = nil)
-
-  # test_substitute_x1().
+  # test_cdf_x4().
   # @description
-  #   An empty hash.
-  def test_substitute_x1()
+  #   'back' and 'front' are nil. self is frozen.
+  def test_cdf_x4()
 
-    assert_raises(DataError) {
-      @node.substitute(INVALID_DATA)
+    frozen_l = Node.new(NILCLASS_I, TEST_SYMBOL, NILCLASS_I).freeze()
+    clone = frozen_l.clone_df()
+    assert_predicate(clone, :frozen?)
+    assert_equal(clone, frozen_l)
+
+  end
+
+  # test_cdf_x5().
+  # @description
+  #   'back' or 'front' is a Node. self is frozen.
+  def test_cdf_x5()
+
+    frozen_b = Node.new(NILCLASS_I, TEST_SYMBOL, @lone).freeze()
+    clone = frozen_b.clone_df()
+    refute_equal(clone, frozen_b)
+    assert_raises(FrozenError) {
+      clone.data = TEST_FLOAT
     }
 
   end
 
-  # test_substitute_x2().
+  # test_cdf_x6().
   # @description
-  #   A DataType type instance.
-  def test_substitute_x2()
-    @node.substitute(SYMBOL_DATA)
-    assert_same(@node.d(), SYMBOL_DATA)
+  #   'back' or 'front' is frozen, and self is frozen.
+  def test_cdf_x6()
+
+    frozen_f = Node.new(NILCLASS_I, TEST_SYMBOL, NILCLASS_I)
+    frozen_f.freeze()
+    frozen_n = Node.new(NILCLASS_I, TEST_SYMBOL, frozen_f).freeze()
+    clone = frozen_n.clone_df()
+    refute_equal(clone, frozen_n)
+    assert_predicate(clone, :frozen?)
+
   end
 
-  # b()
+  # b().
 
   # test_b_x1().
   # @description
   #   A nil back reference.
   def test_b_x1()
-    assert_same(NILCLASS_DATA, @node1.b())
+    assert_same(NILCLASS_I, @node1.b())
   end
 
   # test_b_x2().
@@ -163,36 +195,35 @@ class NodeImplTest < Minitest::Test
   #   A Node instance.
   def test_b_x2()
 
-    n = Node.new(@node1, SYMBOL_DATA, NILCLASS_DATA)
+    n = Node.new(@node1, TEST_SYMBOL, NILCLASS_I)
     assert_same(n.b(), @node1)
     assert_raises(FrozenError) {
-      back_n = n.b()
-      back_n.attach_back(n)
+      @node1.data = TEST_SYMBOL
     }
 
   end
 
-  # d()
+  # data().
 
-  # test_d_x1().
+  # test_data_x1().
   # @description
   #   A valid DataType type instance.
   def test_d_x1()
 
-    n = Node.new(NILCLASS_DATA, FLOAT_DATA, NILCLASS_DATA)
-    assert_same(n.d(), FLOAT_DATA)
-    assert_predicate(n.d(), :frozen?)
+    n = Node.new(NILCLASS_I, TEST_FLOAT, NILCLASS_I)
+    assert_same(n.data(), TEST_FLOAT)
+    assert_predicate(n.data(), :frozen?)
 
   end
 
-  # f()
+  # f().
 
   # test_f_x1().
   # @description
   #   front is nil.
   def test_f_x1()
-    n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    assert_same(NILCLASS_DATA, n.f())
+    n = Node.new(NILCLASS_I, INTEGER_DATA, NILCLASS_I)
+    assert_same(NILCLASS_I, n.f())
   end
 
   # test_f_x2().
@@ -200,64 +231,102 @@ class NodeImplTest < Minitest::Test
   #   front refers a Node instance.
   def test_f_x2()
 
-    n = Node.new(NILCLASS_DATA, INTEGER_DATA, @node1)
+    n = Node.new(NILCLASS_I, INTEGER_DATA, @node1)
     assert_same(n.f(), @node1)
     assert_raises(FrozenError) {
-      front_n = n.f()
-      front_n.attach_front(n)
+      @node1.data = TEST_SYMBOL
     }
 
   end
 
-  # type()
+  # data=(dti = nil).
 
-  # test_default_type().
+  # test_dass_x1().
   # @description
-  #   The default instance's data type is NilClass.
-  def test_default_type()
-    expected_type = NilClass
-    assert_same(@node2.type(), expected_type)
+  #   Any argument excluding a DataType type instance.
+  def test_dass_x1()
+    assert_raises(DataError) {@lone.data = 'invalid data'}
   end
 
-  # ==(n = nil)
-
-  # test_attr_eq_x2a_y2().
+  # test_dass_x2().
   # @description
-  #   An invalid node is unequal.
-  def test_attr_eq_x2a_y2()
+  #   Any DataType type instance argument.
+  def test_dass_x2()
+    @lone.data = TEST_FLOAT
+    assert_same(TEST_FLOAT, @lone.data())
+  end
 
-    x2a = 'test'
-    refute_operator(@node1, '==', x2a)
+  # ==(n = nil).
+
+  # test_attreq_x1().
+  # @description
+  #   Any argument exlcuding Node arguments.
+  def test_attreq_x1()
+    refute_equal(@lone, TEST_SYMBOL)
+  end
+
+  # test_attreq_x2().
+  # @description
+  #   A Node attributively equals itself.
+  def test_attreq_x2()
+    assert_equal(@lone, @lone)
+  end
+
+  # teset_attreq_x3().
+  # @description
+  #   The argument's 'back' and self's 'back' are identical. The argument's
+  #   'data' and self's 'data' are identical, and the argument's 'front' and
+  #   self's 'front' are identical.
+  def test_attreq_x3()
+    l_sc = @lone.shallow_clone()
+    assert_equal(l_sc, @lone)
+  end
+
+  # test_attreq_x4().
+  # @description
+  #   The argument's 'back' is unidentical.
+  def test_attreq_x4()
+
+    unidentical_f = NODE1.shallow_clone()
+    n1 = Node.new(NILCLASS_I, TEST_SYMBOL, unidentical_f)
+    refute_equal(n1, @base)
 
   end
 
-  # test_attr_eq_x2b_y1().
+  # test_attreq_x5().
   # @description
-  #   Attributively equal nodes are equal.
-  def test_attr_eq_x2b_y1()
+  #   The argument's 'back' and self's 'back' are identical; the argument's
+  # 'data' and self's 'data' are unidentical; and the argument's 'front' and
+  # self's 'front' are identical.
+  def test_attreq_x5()
 
-    x2 = @node3
-    x1 = CLASS.new(@node1, ONE, NILCLASS_DATA)
-    assert_operator(x1, '==', x2)
+    l_clone = @lone.shallow_clone()
+    l_clone.data = TEST_FLOAT
+    refute_equal(l_clone, @lone)
 
   end
 
-  # test_default_attr_eq().
+  # test_attreq_x6().
   # @description
-  #   The default instance == the default instance copy.
-  def test_default_attr_eq()
-    copy = @node1.clone_df()
-    assert_equal(@node1, copy)
+  #   The argument's 'back' and self's 'back' are identical; the argument's
+  # 'data' and self's 'data' are identical; and the argument's 'front' and
+  # self's 'front' are unidentical.
+  def test_attreq_x6()
+
+    unidentical_f = Node.new(NILCLASS_I, TEST_SYMBOL, NILCLASS_I)
+    comp_b = Node.new(NILCLASS_I, TEST_SYMBOL, unidentical_f)
+    refute_equal(comp_b, @base)
+
   end
 
-  # data()
+  # data().
 
   # test_data_value_gets().
   # @description
   #   A data value initialized node gets appropriately.
   def test_data_value_gets()
-    value_node = CLASS.new(NILCLASS_DATA, ONE, NILCLASS_DATA)
-    assert_operator(ONE, 'equal?', value_node.d())
+    value_node = CLASS.new(NILCLASS_I, ONE, NILCLASS_I)
+    assert_operator(ONE, 'equal?', value_node.data())
   end
 
   # test_data_object_gets().
@@ -266,12 +335,12 @@ class NodeImplTest < Minitest::Test
   def test_data_object_gets()
 
     data_obj = 3.14
-    do_node = CLASS.new(NILCLASS_DATA, data_obj, NILCLASS_DATA)
-    assert_same(data_obj, do_node.d())
+    do_node = CLASS.new(NILCLASS_I, data_obj, NILCLASS_I)
+    assert_same(data_obj, do_node.data())
 
   end
 
-  # ===(n = ni)
+  # ===(n = ni).
 
   # test_default_case_eq().
   # @description
@@ -289,222 +358,146 @@ class NodeImplTest < Minitest::Test
     assert_operator(other, '===', @node1)
   end
 
-  # inspect()
+  # inspect().
 
-  # test_insp_x1_y1().
+  # test_inspect_x1().
   # @description
-  #   A Node with nil back and front attributes returns an arrowless diagram.
-  def test_insp_x1_y1()
+  #   A base node.
+  def test_inspect_x1()
 
-    x1        = @node1
-    data_text = "data: #{x1.d()}"
-    padding   = (26 - data_text.length()) / 2
-    space     = ' ' * padding
-    y1        = "| #{x1.to_s()} |\n| #{space}data: #{x1.d()}#{space}  |"
-    assert_equal(y1, x1.inspect())
-
-  end
-
-  # test_insp_x2_y2().
-  # @description
-  #   A Node back and a nil front returns a back arrow diagram.
-  def test_insp_x2_y2()
-
-    x2            = @node3
-    y2            = x2.inspect()
-    arrow_length  = 3
-    arrow_padding = ' ' * arrow_length
-    data_text     = "data: #{x2.d()}"
-    padding       = (26 - data_text.length()) / 2
+    x3 = @base
+    data_text     = "data: #{x3.data()}"
+    padding       = (31 - data_text.length()) / 2
     space         = ' ' * padding
-    expected      = "#{arrow_padding}| #{x2.to_s()} |\n" +
-        "<--| #{space}data: #{x2.d()}#{space}  |"
-    assert_equal(expected, y2)
-
-  end
-
-  # test_insp_x3_y3().
-  # @description
-  #   A nil back and a Node front returns a forward arrow diagram.
-  def test_insp_x3_y3()
-
-    x3 = Node.new(NILCLASS_DATA, NILCLASS_DATA, @node1)
-    data_text     = "data: #{x3.d()}"
-    padding       = (26 - data_text.length()) / 2
-    space         = ' ' * padding
-    arrow_length  = 3
-    arrow_padding = ' ' * arrow_length
-    expected      = "| #{x3.to_s()} |-->\n| #{space}data: #{x3.d()}#{space} |" +
-        "#{arrow_padding}"
+    expected      = "| base #{x3.to_s()} |\n| #{space}data: #{x3.data()}" +
+        "#{space} |"
     y3            = x3.inspect()
     assert_equal(expected, y3)
 
   end
 
-  # test_insp_x4_y4().
+  # test_inspect_x2().
   # @description
-  #   A doubly-linked node's diagram contains a forward arrow and backward
-  #   arrow.
-  def test_insp_x4_y4()
+  #   A common node.
+  def test_inspect_x2()
 
-    x4            = @node5
-    data_text     = "data: #{x4.d()}"
+    x4            = @common
+    data_text     = "data: #{x4.data()}"
     padding       = (26 - data_text.length()) / 2
     space         = ' ' * padding
-    arrow_length  = 3
-    arrow_padding = ' ' * arrow_length
-    expected      = "#{arrow_padding}| #{x4.to_s()} |-->\n" +
-        "<--| #{space}data: #{x4.d()}#{space}  |#{arrow_padding}"
+    expected      = "| #{x4.to_s()} |\n" +
+        "| #{space}data: #{x4.data()}#{space}  |"
     y4            = x4.inspect()
     assert_equal(expected, y4)
 
   end
 
-  # attach_back(n = nil)
-
-  # test_ab_x1().
+  # test_inspect_x3().
   # @description
-  #   A Node argument.
-  def test_ab_x1()
+  #   A lone node.
+  def test_inspect_x3()
 
-    n   = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    a_n = Node.new(NILCLASS_DATA, SYMBOL_DATA, NILCLASS_DATA)
-    n.attach_back(a_n)
-    assert_same(a_n, n.b())
+    data_text = "data: #{@lone.data()}"
+    padding   = (31 - data_text.length()) / 2
+    space     = ' ' * padding
+    y1        = "| base #{@lone.to_s()} |\n| #{space}data: #{@lone.data()
+    }#{space} |"
+    assert_equal(y1, @lone.inspect())
 
   end
 
-  # test_ab_x2().
+  # test_inspect_x4().
   # @description
-  #   An argument type other than Node.
-  def test_ab_x2()
+  #   A pioneer node.
+  def test_inspect_x4()
 
-    assert_raises(ArgumentError) {
-      n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-      n.attach_back(SYMBOL_DATA)
+    x2            = @pioneer
+    y2            = x2.inspect()
+    data_text     = "data: #{x2.data()}"
+    padding       = (26 - data_text.length()) / 2
+    space         = ' ' * padding
+    expected      = "| #{x2.to_s()} |\n" +
+        "| #{space}data: #{x2.data()}#{space}  |"
+    assert_equal(expected, y2)
+
+  end
+
+  # Protected methods.
+
+  # back_ref().
+
+  # test_br_x1().
+  # @description
+  #   'back_ref()' was protected.
+  def test_br_x1()
+    assert_raises(NameError) {@lone.back_ref()}
+  end
+
+  # front_ref().
+
+  # test_fr_x1().
+  # @description
+  #   'front_ref' was protected.
+  def test_fr_x1()
+    assert_raises(NameError) {@lone.front_ref()}
+  end
+
+  # Private methods.
+
+  # back().
+
+  # test_back_x1().
+  # @description
+  #   'back()' is private.
+  def test_back_x1()
+    assert_raises(NameError) {@lone.back()}
+  end
+
+  # front().
+
+  # test_front_x1().
+  # @description
+  #   'front' is private.
+  def test_front_x1()
+    assert_raises(NameError) {@lone.front()}
+  end
+
+  # back=(n = nil).
+
+  # test_bass_x1().
+  # @description
+  #   'back=(n = nil)' is private.
+  def test_bass_x1()
+    assert_raises(NameError) {@lone.back = 'hello'}
+  end
+
+  # test_bass_x2().
+  # @description
+  #   Initializing an invalid back.
+  def test_bass_x2()
+
+    assert_raises(NodeError, "The argument is not a Node instance.") {
+      Node.new(TEST_SYMBOL, TEST_SYMBOL, NILCLASS_I)
     }
 
   end
 
-  # attach_front(n = nil)
+  # front=(n = nil).
 
-  # test_af_x1().
+  # test_fass_x1().
   # @description
-  #   The argument's class is Node.
-  def test_af_x1()
-
-    a_n = Node.new(NILCLASS_DATA, SYMBOL_DATA, NILCLASS_DATA)
-    n   = Node.new(NILCLASS_DATA, TRUECLASS_DATA, NILCLASS_DATA)
-    n.attach_front(a_n)
-    assert_same(a_n, n.f())
-
+  #   'front=(n = nil)' is private.
+  def test_fass_x1()
+    assert_raises(NameError) {@lone.front = 'hello'}
   end
 
-  # test_af_x2().
+  # test_fass_x2().
   # @description
-  #   The argument is not a Node.
-  def test_af_x2()
+  #   Initializing an invalid front.
+  def test_fass_x2()
 
-    n = Node.new(NILCLASS_DATA, INTEGER_DATA, NILCLASS_DATA)
-    assert_raises(ArgumentError) {
-      n.attach_front(INTEGER_DATA)
-    }
-
-  end
-
-  # detach_back()
-
-  # test_detachb_x().
-  # @description
-  #   A Node.
-  def test_detachb_x()
-    @node.detach_back()
-    assert_same(NILCLASS_DATA, @node.b())
-  end
-
-  # detach_front()
-
-  # test_detachf_x().
-  # @description
-  #   A Node.
-  def test_detachf_x()
-    @node.detach_front()
-    assert_same(NILCLASS_DATA, @node.f())
-  end
-
-  # adapt()
-
-  # test_adapt_x().
-  # @description
-  #   self.
-  def test_adapt_x()
-
-    n_a = @node.adapt()
-    assert_same(NodeAdapter, n_a.class())
-    assert_same(n_a.back(), NILCLASS_DATA)
-    assert_same(n_a.data(), INTEGER_DATA)
-    assert_same(n_a.front(), NILCLASS_DATA)
-
-  end
-
-  # back=(node = nil)
-
-  # test_b_ass_x2a_y1().
-  # @description
-  #   An invalid argument raises a NodeError. The back reference remains.
-  def test_b_ass_x2a_y1()
-
-    x2a = INVALID_DATA
-    assert_raises(NodeError) {
-      Node.new(x2a)
-    }
-
-  end
-
-  # test_b_ass_x2b_y2().
-  # @description
-  #   A valid Node becomes the back reference.
-  def test_b_ass_x2b_y2()
-    @node1.attach_back(@node)
-    assert_same(@node, @node1.b())
-  end
-
-  # data=(dti = nil)
-
-  # test_data_ass_x2a_y2().
-  # @description
-  #   A valid data argument becomes the node's data.
-  def test_data_ass_x2a_y2()
-
-    x2a      = ONE
-    expected = x2a
-    @node1.substitute(x2a)
-    assert_same(expected, @node1.d())
-
-  end
-
-  # test_data_ass_x2b_y1().
-  # @description
-  #   An invalid data object raises a DataError. The node's data remains.
-  def test_data_ass_x2b_y1()
-
-    x2b = INVALID_DATA
-    assert_raises(DataError) {
-      Node.new(nil, x2b, nil)
-    }
-
-  end
-
-  # front=(node = nil)
-
-  # test_f_ass_x2a_y1().
-  # @description
-  #   An invalid argument raises an NodeError. The front reference remains.
-  def test_f_ass_x2a_y1()
-
-    x2a = INVALID_DATA
-    assert_raises(NodeError) {
-      Node.new(nil, nil, x2a)
+    assert_raises(NodeError, "The argument is not a Node instance.") {
+      Node.new(NILCLASS_I, TEST_SYMBOL, TEST_SYMBOL)
     }
 
   end
